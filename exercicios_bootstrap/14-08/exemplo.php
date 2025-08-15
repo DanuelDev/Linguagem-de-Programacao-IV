@@ -11,6 +11,11 @@
 
         # php -S localhost:8080 (comando para iniciar o php no servidor local)
         # no navegador: localhost:8080/caminho/ate_o/php.php
+
+        echo "<p> $dia </p>"; # use . para concatenação ou apenas aspas
+
+        #https://vanessaborges2.github.io/Gerador-Formulario/
+
     ?>
     <h1>Hoje é dia <?= $dia?> de Agosto de 2025</h1>
 </body>
