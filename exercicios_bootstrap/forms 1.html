@@ -8,22 +8,22 @@
   </head>
   <body>
     <div class="container border border-primary mt-5">
-        <form>
+        <form method="post">
             <!--First name, Last name and Username input boxes-->
             <div class="row pt-3">
                 <div class="col">
                     <label for="first_name">First Name</label>
-                    <input type="text" class="form-control" id="first_name" placeholder="Mark">
+                    <input type="text" class="form-control" name="first_name" id="first_name" placeholder="Mark">
                 </div>
                 <div class="col">
                     <label for="last_name">Last Name</label>
-                    <input type="text" class="form-control" id="last_name" placeholder="Otto">
+                    <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Otto">
                 </div>
                 <div class="input-group col">
                     <label for="username">Username</label>
                     <div class="input-group">
                         <span class="input-group-text">@</span>
-                        <input type="text" class="form-control" id="last_name" placeholder="Username">
+                        <input type="text" class="form-control" name="username" id="username" placeholder="Username">
                     </div>
                 </div>
             </div>
@@ -31,21 +31,21 @@
             <div class="row pt-3">
                 <div class="col-md-6">
                     <label for="city">City</label>
-                    <input type="text" class="form-control" id="city" placeholder="City">
+                    <input type="text" class="form-control" name="city" id="city" placeholder="City">
                 </div>
                 <div class="col-md-3">
                     <label for="state">State</label>
-                    <input type="text" class="form-control" id="state" placeholder="State">
+                    <input type="text" class="form-control" name="state" id="state" placeholder="State">
                 </div>
                 <div class="col-md-3">
                     <label for="zip">Zip</label>
-                    <input type="text" class="form-control" id="zip" placeholder="Zip">
+                    <input type="text" class="form-control" name="zip" id="zip" placeholder="Zip">
                 </div>
             </div>
             <!--Checkbox-->
             <div class="form-group pt-3">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="confirmCheckbox">
+                    <input class="form-check-input" type="checkbox" name="confirmCheckbox" id="confirmCheckbox">
                     <label class="form-check-label" for="confirmCheckbox">Agree to terms and conditions</label>
                 </div>
             </div>

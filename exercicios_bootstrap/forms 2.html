@@ -8,66 +8,66 @@
   </head>
   <body>
     <div class="container border border-primary mt-5">
-        <form>
+        <form method="post">
             <!--Código, Nome, E-mail, CPF-->
             <div class="row pt-3">
                 <div class="col-md-1">
                     <label for="codigo"><strong>Código</strong></label>
-                    <input type="text" class="form-control" id="codigo" placeholder="32">
+                    <input type="text" class="form-control" name="codigo" id="codigo" placeholder="32">
                 </div>
                 <div class="col-md-5">
                     <label for="nome"><strong>Nome</strong></label>
-                    <input type="text" class="form-control" id="nome" placeholder="Nome Completo do Cliente">
+                    <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome Completo do Cliente">
                 </div>
                 <div class="col-md-4">
                     <label for="email"><strong>E-mail</strong></label>
-                    <input type="email" class="form-control" id="email" placeholder="cliente@dominio.com">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="cliente@dominio.com">
                 </div>
                 <div class="col-md-2">
                     <label for="cpf" class="text"><strong>CPF</strong></label>
-                    <input type="text" class="form-control" id="cpf" placeholder="Só números">
+                    <input type="text" class="form-control" name="cpf" id="cpf" placeholder="Só números">
                 </div>
             </div>
             <!--N.Celular, N.Telefone, CEP, Logradouroo, N., Bairro-->
             <div class="row pt-3">
                 <div class="col-md-2">
                     <label for="numCelular"><strong>Nº Celular</strong></label>
-                    <input type="text" class="form-control" id="numCelular" placeholder="Nº do Celular">
+                    <input type="text" class="form-control" name="numCelular" id="numCelular" placeholder="Nº do Celular">
                 </div>
                 <div class="col-md-2">
                     <label for="numTelFixo"><strong>Nº Telefone Fixo</strong></label>
-                    <input type="text" class="form-control" id="numTelFixo" placeholder="Nº telefone">
+                    <input type="text" class="form-control" name="numTelFixo" id="numTelFixo" placeholder="Nº telefone">
                 </div>
                 <div class="col-md-2">
                     <label for="cep"><strong>CEP</strong></label>
-                    <input type="text" class="form-control" id="cep" placeholder="ex: 88308070">
+                    <input type="text" class="form-control" name="cep" id="cep" placeholder="ex: 88308070">
                 </div>
                 <div class="col-md-2">
                     <label for="logradouro"><strong>Logradouro</strong></label>
-                    <input type="text" class="form-control" id="logradouro" placeholder="ex: Rua 1400.">
+                    <input type="text" class="form-control" name="logradouro" id="logradouro" placeholder="ex: Rua 1400.">
                 </div>
                 <div class="col-md-1">
                     <label for="num"><strong>Nº</strong></label>
-                    <input type="text" class="form-control" id="num" placeholder="Nº">
+                    <input type="text" class="form-control" name="num" id="num" placeholder="Nº">
                 </div>
                 <div class="col-md-3">
                     <label for="bairro"><strong>Bairro</strong></label>
-                    <input type="text" class="form-control" id="bairro" placeholder="Bairro">
+                    <input type="text" class="form-control" name="bairro" id="bairro" placeholder="Bairro">
                 </div>
             </div>
             <!--Cidade, UF, Status-->
             <div class="row pt-3">
                 <div class="col-md-3">
                     <label for="cidade"><strong>Cidade</strong></label>
-                    <input type="text" class="form-control" id="cidade" placeholder="Cidade">
+                    <input type="text" class="form-control" name="cidade" id="cidade" placeholder="Cidade">
                 </div>
                 <div class="col-md-1">
                     <label for="uf"><strong>UF</strong></label>
-                    <input type="text" class="form-control" id="uf" placeholder="UF">
+                    <input type="text" class="form-control" name="uf" id="uf" placeholder="UF">
                 </div>
                 <div class="col-md-2">
                     <label for="status"><strong>Status</strong></label>
-                    <select class="form-control" id="status">
+                    <select class="form-control" name="status" id="status">
                         <option selected>Selecione</option>
                         <option value="solteiro">Solteiro(a)</option>
                         <option value="namorando">Namorando</option> <!--Namorando é um estado cívil válido-->

@@ -9,23 +9,23 @@
   <body>
     <div class="container border border-primary mt-3">
         <h1>Novo Usuário</h1>
-        <form>
+        <form method="post">
             <div class="col-group">
                 <label for="nome_completo"><strong>Nome:</strong></label>
-                <input type="text" class="form-control" id="nome_completo" placeholder="Informe o nome">
+                <input type="text" class="form-control" name="nome_completo" id="nome_completo" placeholder="Informe o nome">
             </div>
             <div class="row pt-3">
                 <div class="col-md-4">
                     <label for="cpf"><strong>CPF:</strong></label>
-                    <input type="text" class="form-control" id="cpf" placeholder="Informe o CPF">
+                    <input type="text" class="form-control" name="cpf" id="cpf" placeholder="Informe o CPF">
                 </div>
                 <div class="col-md-6">
                     <label for="endereco"><strong>Endereço:</strong></label>
-                    <input type="text" class="form-control" id="endereco" placeholder="Informe o endereço">
+                    <input type="text" class="form-control" name="endereco" id="endereco" placeholder="Informe o endereço">
                 </div>
                 <div class="col-md-2">
                     <label for="nivel"><strong>Nível:</strong></label>
-                    <select class="form-select" id="endereco">
+                    <select class="form-select" name="nivel" id="nivel">
                         <option selected>---</option>
                         <option value="vip">VIP</option>
                         <option value="premium">Premium</option>
@@ -37,15 +37,15 @@
             <div class="row pt-3">
                 <div class="col-md-6">
                     <label for="email"><strong>Email:</strong></label>
-                    <input type="text" class="form-control" id="email" placeholder="Informe o Email">
+                    <input type="text" class="form-control" name="email" id="email" placeholder="Informe o Email">
                 </div>
                 <div class="col-md-4">
                     <label for="senha"><strong>Senha:</strong></label>
-                    <input type="text" class="form-control" id="senha" placeholder="Informe a senha">
+                    <input type="text" class="form-control" name="senha" id="senha" placeholder="Informe a senha">
                 </div>
                 <div class="col-md-2">
                     <label for="status"><strong>Status:</strong></label>
-                    <select class="form-select" id="status">
+                    <select class="form-select" name="status" id="status">
                         <option selected>---</option>
                         <option value="vip">VIP</option>
                         <option value="premium">Premium</option>
