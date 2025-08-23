@@ -1,0 +1,12 @@
+.error-message {
+    color: #dc3545;
+}
+.container-main {
+    border: 2px solid #0d6efd;
+    border-radius: 10px;
+}
+.forms_title {
+    background: #0d6efd;
+    color: white;
+    text-align: center;
+}

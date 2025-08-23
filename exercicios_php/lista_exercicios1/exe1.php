@@ -3,28 +3,24 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Exercicio 1</title>
+    <title>Exercício 1</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    <style>
-        .error-message {
-            color: #dc3545;
-        }
-        .container-main {
-            border: 2px solid #0d6efd;
-            border-radius: 10px;
-        }
-    </style>
+    <link href="forms_style.css" rel="stylesheet">
     </head>
     <body>
+        <!--Crie um formulário que permita ao usuário inserir dois números. O script PHP deve somar esses números e exibir o resultado.-->
     <form method="post">
         <div class="container container-main mt-3">
             <div class="row bg-primary text-white text-center pt-2">
-                <h3>Fomulário 1</h3>
+                <h3>Exercício 1</h3>
             </div>
             <div class="row pt-3 justify-content-center">
                 <div class="col-md-3">
                     <label for="num1">Primeiro Número</label>
                     <input type="text" class="form-control" name="num1" id="num1">
+                </div>
+                <div class="col-auto mt-4">
+                    <h4>+</h4>
                 </div>
                 <div class="col-md-3">
                     <label for="num2">Segundo Número</label>
