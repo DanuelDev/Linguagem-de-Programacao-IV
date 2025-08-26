@@ -4,9 +4,11 @@
 .container-main {
     border: 2px solid #0d6efd;
     border-radius: 10px;
+    margin-top: 20px;
 }
 .forms_title {
     background: #0d6efd;
     color: white;
     text-align: center;
+    padding-top: 5px;
 }

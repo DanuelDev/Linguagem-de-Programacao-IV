@@ -10,6 +10,7 @@
         $dia = date('d'); # toda variável começa com $
 
         # php -S localhost:8080 (comando para iniciar o php no servidor local)
+        # C:\xampp\php\php.exe -S localhost:8080
         # no navegador: localhost:8080/caminho/ate_o/php.php
 
         echo "<p> $dia </p>"; # use . para concatenação ou apenas aspas

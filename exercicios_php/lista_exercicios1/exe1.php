@@ -10,8 +10,8 @@
     <body>
         <!--Crie um formulário que permita ao usuário inserir dois números. O script PHP deve somar esses números e exibir o resultado.-->
     <form method="post">
-        <div class="container container-main mt-3">
-            <div class="row bg-primary text-white text-center pt-2">
+        <div class="container container-main">
+            <div class="row forms_title">
                 <h3>Exercício 1</h3>
             </div>
             <div class="row pt-3 justify-content-center">
