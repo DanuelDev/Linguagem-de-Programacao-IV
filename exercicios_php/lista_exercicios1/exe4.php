@@ -8,6 +8,9 @@
     <link href="forms_style.css" rel="stylesheet">
     </head>
     <body>
+    <!--Crie um formulário que permita ao usuário inserir dois números. O script PHP deve dividir o 
+    primeiro número pelo segundo e exibir o resultado. Inclua uma verificação para evitar divisão 
+    por zero.-->
     <form method="post">
         <div class="container container-main">
             <div class="row forms_title">
@@ -16,14 +19,14 @@
             <div class="row pt-3 justify-content-center">
                 <div class="col-md-3">
                     <label for="num1">Primeiro número</label>
-                    <input type="text" class="form-control" name="num1" id="num1">
+                    <input type="text" class="form-control forms_label" name="num1" id="num1">
                 </div>
                 <div class="col-auto mt-4">
                     <h4>÷</h4>
                 </div>
                 <div class="col-md-3">
                     <label for="num2">Segundo número</label>
-                    <input type="text" class="form-control" name="num2" id="num2">
+                    <input type="text" class="form-control forms_label" name="num2" id="num2">
                 </div>
             </div>
             <div class="row pt-3 pb-3 justify-content-center">
@@ -42,6 +45,7 @@
                     if($num1 !== "" && $num2 !== ""){
                         //Verifica se são números válidos
                         if(is_numeric($num1) && is_numeric($num2)){
+                            //Verifica se não há uma divisão por zero
                             if($num2 !== "0"){
                                 $div = (float)$num1 / (float)$num2;
                                 echo'<div class="row pt-3 pb-3 text-center">';

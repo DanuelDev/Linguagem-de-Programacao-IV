@@ -17,14 +17,14 @@
             <div class="row pt-3 justify-content-center">
                 <div class="col-md-3">
                     <label for="num1">Primeiro Número</label>
-                    <input type="text" class="form-control" name="num1" id="num1">
+                    <input type="text" class="form-control forms_label" name="num1" id="num1">
                 </div>
                 <div class="col-auto mt-4">
                     <h4>+</h4>
                 </div>
                 <div class="col-md-3">
                     <label for="num2">Segundo Número</label>
-                    <input type="text" class="form-control" name="num2" id="num2">
+                    <input type="text" class="form-control forms_label" name="num2" id="num2">
                 </div>
             </div>
             
