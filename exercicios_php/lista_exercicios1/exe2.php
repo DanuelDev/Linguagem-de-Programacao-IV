@@ -29,7 +29,7 @@
             </div>
             <div class="row pt-3 pb-3 justify-content-center">
                 <div class="col-md-3 text-center">
-                    <button class="btn btn-success">Calcular!</button>
+                    <button type="submit" class="btn btn-success">Calcular!</button>
                 </div>
             </div>
 
