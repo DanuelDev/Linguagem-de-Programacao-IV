@@ -10,7 +10,7 @@ include("cabecalho.php");
         <label for="num<?php echo $i?>">Número <?php echo $i;?></label>
         <input type="number" class="form-control forms_label" name="num<?php echo $i?>" id="num<?php echo $i?>">
         <?php endfor; ?>
-        <button class="btn btn-success mt-4">Calcular!</button>
+        <button class="btn btn-success mt-4">Analisar!</button>
     </div>
     <div class="col-md-1">
         <?php for($i=4; $i<=7; $i++): ?>
@@ -59,7 +59,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         
         // Exibir resultados ou erros
         if($erro){
-            echo "<div class='alert alert-danger mt-4 text-center'>$mensagem_erro</div>";
+            echo "<div class='alert error-message mt-4 text-center'>$mensagem_erro</div>";
         } else {
             echo "<div class='alert alert-success mt-4 text-center'>";
             echo "<h4>Resultado:</h4>";

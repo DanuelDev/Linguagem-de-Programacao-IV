@@ -18,3 +18,8 @@
 .forms_label {
     border: 1px solid #0d6efd;
 }
+.h1_notice {
+    background-color: #e7e683;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
