@@ -28,22 +28,32 @@ Exemplo, para A=5, B=4 você deve imprimir na tela: "4 5".-->
 
 <?php
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    // Verifica se os campos foram enviados
+    // Verifica se os campos foram enviados e não é NULL
     if(isset($_POST['valA']) && isset($_POST['valB'])){
         $valA = $_POST["valA"];
         $valB = $_POST["valB"];
-        //Verifica valores
-        if($valA > $valB){
-            echo'<div class="row pt-3 pb-3 text-center">';
-            echo    "<h3>Resultado: [$valB, $valA]</h3>";
-            echo'</div>';
-        } elseif($valB > $valA){
-            echo'<div class="row pt-3 pb-3 text-center">';
-            echo    "<h3>Resultado: [$valA, $valB]</h3>";
-            echo'</div>';
+        // Verifica se os campos foram preenchidos
+        if($valA != "" && $valB != ""){
+            // Verifica se o valor no campo é númerico
+            if(is_numeric($valA) && is_numeric($valB)){
+                //Verifica valores
+                echo'<div class="row pt-3 pb-3 text-center alert alert-success">';
+                if($valA > $valB){
+                    echo    "<h3>Resultado: [$valB, $valA]</h3>";
+                } elseif($valB > $valA){
+                    echo    "<h3>Resultado: [$valA, $valB]</h3>";
+                }else{
+                    echo    "<h3>Ambos iguais: $valA!</h3>";
+                }
+                echo'</div>';
+                }else{
+                    echo'<div class="row pt-3 pb-3 text-center">';
+                    echo    '<h3 class="error-message">Por favor, informe apenas números!</h3>';
+                    echo'</div>';
+                }
         }else{
             echo'<div class="row pt-3 pb-3 text-center">';
-            echo    "<h3>Ambos iguais: $valA!</h3>";
+            echo    '<h3 class="error-message">Por favor, informe os dois números!</h3>';
             echo'</div>';
         }
     }

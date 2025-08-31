@@ -46,7 +46,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 echo'<div class="row pt-3 pb-3 text-center">';
                 echo    "<h3>Resultado: $soma</h3>";
                 if($iguais){
-                    echo "<label class = 'h1_notice'>Números iguais, dobro da soma!</label>";
+                    echo "<label class = 'alert alert-success'>Números iguais, triplo da soma!</label>";
                 }
                 echo'</div>';
             }
