@@ -47,4 +47,4 @@
   </div>
 </nav>
 <form method="post">
-    <div class="container container-main">
+    <div class="container-sm container-main">
