@@ -2,7 +2,7 @@
 include("cabecalho.php");
 ?>
 <!--Crie um formulário para que o usuário informe um número. Use um loop
-for para imprimir todos os números de 1 até o número informado.-->
+for para calcular o fatorial desse número e exibir o resultado.-->
 <div class="row forms_title">
     <h3>Exercício 9</h3>
 </div>

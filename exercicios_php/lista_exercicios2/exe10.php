@@ -2,7 +2,7 @@
 include("cabecalho.php");
 ?>
 <!--Crie um formulário para que o usuário informe um número. Use um loop
-for para imprimir todos os números de 1 até o número informado.-->
+for para imprimir a tabuada desse número de 1 a 10.-->
 <div class="row forms_title">
     <h3>Exercício 10</h3>
 </div>

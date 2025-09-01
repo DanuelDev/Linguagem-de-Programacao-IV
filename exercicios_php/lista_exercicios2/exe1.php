@@ -1,6 +1,8 @@
 <?php
 include("cabecalho.php");
 ?>
+<!--Escreva um programa que leia 7 números diferentes, imprima o menor
+valor e imprima a posição do menor valor na sequência de entrada-->
 <div class="row forms_title">
     <h3>Exercício 1</h3>
 </div>
