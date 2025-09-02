@@ -44,7 +44,7 @@ PHP deve calcular o perímetro do retângulo e exibir o resultado.-->
                 if(is_numeric($largura) && is_numeric($altura)){
                     $perimetro = 2*((float)$largura + (float)$altura);
                     echo'<div class="row pt-3 pb-3 text-center">';
-                    echo    "<h3>Área: $perimetro</h3>";
+                    echo    "<h3>Perímetro: $perimetro</h3>";
                     echo'</div>';
                 }
                 else{
