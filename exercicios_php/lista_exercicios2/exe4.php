@@ -10,9 +10,12 @@ sobre ele e exibido o novo valor do produto.-->
     <h3>Exercício 4</h3>
 </div>
 <div class="row pt-3 justify-content-center">
-    <div class="col-md-1">
+    <div class="col-md-2">
         <label for="val_produto">Valor do produto</label>
-        <input type="text" class="form-control forms_label" name="val_produto" id="val_produto" placeholder = "R$">
+        <div class="input-group">
+            <span class="input-group-text">R$</span>
+            <input type="text" class="form-control forms_label" name="val_produto" id="val_produto">
+        </div>
     </div>
 </div>
 
