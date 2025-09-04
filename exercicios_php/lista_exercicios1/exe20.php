@@ -47,15 +47,9 @@ deve calcular a velocidade média (distância / tempo) e exibir o resultado.-->
                             echo '<div class="row pt-3 pb-3 text-center">';
                             echo "<h3>Velocidade média: $vel_media km/h</h3>";
                             echo '</div>';
-                        }elseif($desconto == 0){
-                            //Erro valor inválido
+                        }else{
                             echo'<div class="row pt-3 pb-3 text-center">';
-                            echo'<h3>Nenhum desconto aplicado...</h3>';
-                            echo'</div>';
-                        }
-                        else{
-                            echo'<div class="row pt-3 pb-3 text-center">';
-                            echo'<h3 class="error-message">Aplique um desconto válido</h3>';
+                            echo'<h3 class="error-message">Insira apenas números positivos maiores que 0.</h3>';
                             echo'</div>';
                         }
                     }
