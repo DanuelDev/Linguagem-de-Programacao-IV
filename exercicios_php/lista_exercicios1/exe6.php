@@ -30,12 +30,16 @@ deve converter essa temperatura para Fahrenheit e exibir o resultado.-->
                 if(isset($_POST["celsius"])){
                     $celsius = $_POST["celsius"];
                     //Verifica se os campos estão vazios
-                    if($celsius !== ""){
+                    if($celsius !== "" && is_numeric($celsius)){
                         $fhr = ($celsius * 1.8) + 32;
-                        echo "$fhr";
+                            echo'<div class="row pt-3 pb-3 text-center">';
+                            echo    "<h3>Fahrenheit: $fhr</h3>";
+                            echo'</div>';
                     }
                     else{
-                        echo "tá vazio";
+                            echo'<div class="row error-message">';
+                            echo    '<h3 class="error-message">Por favor, informe apenas números!</h3>';
+                            echo'</div>';
                     }
                 }
             }
