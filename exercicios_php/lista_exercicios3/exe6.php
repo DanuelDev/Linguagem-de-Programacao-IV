@@ -1,7 +1,7 @@
 <?php
 include("cabecalho.php");
 ?>
-<!--Crie um programa em PHP que leia um valor e retorna a raiz quadrada desse número. -->
+<!--Crie um programa em PHP que recebe um número de ponto flutuante e retorna o número arredondado. -->
 <div class="row forms_title">
     <h3>Exercício 6</h3>
 </div>
