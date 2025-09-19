@@ -14,6 +14,7 @@ print_r($vetor); # mais direto do que o var_dump
 $vetor[4] = 6; # mudar o valor de uma posição
 echo "<p>Novo valor na posição 4: ".$vetor[4]."</p>";
 
+#$v = "nome";  ===> pensar nisso aqui para os exercicios
 $vetor["nome"] = "Daniel";
 echo "<br>";
 print_r($vetor);
