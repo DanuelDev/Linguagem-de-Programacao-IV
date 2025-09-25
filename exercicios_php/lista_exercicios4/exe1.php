@@ -54,24 +54,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $contatos[$nome[$i]] = $tel[$i];
         }
     }
-}
-?>
 
-<div class="row pt-2 justify-content-center">
-    <div class="row text-center">
-        <h3>Contatos registrados:</h3>
-    </div>
-    <div class="row pt-2 justify-content-center">
-        <div class="col-md-2">
-            <?php 
+
+echo "<div class='row text-center'>";
+    echo    "<h3>Contatos registrados:</h3>";
+    echo "</div>";
+    echo "<div class='row pt-2 justify-content-center'>";
+        echo "<div class='col-md-2'>";
             if($erro != true){
                 foreach ($contatos as $n => $c){ 
-                    echo "<h5>$n - $c</h5>";
+                    echo "<h5 class='border border-dark pt-3 pb-3 p-3'><strong>$n</strong> - $c</h5>";
                 }
             }
-            ?>
-        </div>
-    </div>
-</div>
-
+        echo "</div>";
+    echo "</div>";
+echo "</div>";
+}
+?>
 <?php include "rodape.php" ?>
