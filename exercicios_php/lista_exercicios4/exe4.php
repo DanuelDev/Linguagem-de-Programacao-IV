@@ -9,16 +9,12 @@ Exiba a lista ordenada pelos preços após a aplicação do imposto.-->
 <?php for($i = 1; $i <= 5; $i++): ?>
     <div class="row pt-2 justify-content-center">
         <div class="col-md-2">
-            <label for="produto[<?= $i ?>][codigoproduto]">Cód. Produto</label>
-            <input type="text" class="form-control forms_label" name="produto[<?= $i ?>][codigoproduto]" id="produto[<?= $i ?>][codigoproduto]" required="">
+            <label for="item[<?= $i ?>][nomeitem]">Nome do Item</label>
+            <input type="text" class="form-control forms_label" name="item[<?= $i ?>][nomeitem]" id="item[<?= $i ?>][nomeitem]" required="">
         </div>
         <div class="col-md-2">
-            <label for="produto[<?= $i ?>][nomeproduto]">Nome do Produto</label>
-            <input type="text" class="form-control forms_label" name="produto[<?= $i ?>][nomeproduto]" id="produto[<?= $i ?>][nomeproduto]" required="">
-        </div>
-        <div class="col-md-2">
-            <label for="produto[<?= $i ?>][precoproduto]">Preço do Produto</label>
-            <input type="number" class="form-control forms_label" name="produto[<?= $i ?>][precoproduto]" id="produto[<?= $i ?>][precoproduto]" required="">
+            <label for="item[<?= $i ?>][precoitem]">Preço do Item</label>
+            <input type="number" class="form-control forms_label" name="item[<?= $i ?>][precoitem]" id="item[<?= $i ?>][precoitem]" required="">
         </div>
     </div>
 <?php endfor; ?>
@@ -30,36 +26,31 @@ Exiba a lista ordenada pelos preços após a aplicação do imposto.-->
 
 <?php 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    $dados = $_POST["produto"];
-    $produtos = [];
+    $dados = $_POST["item"];
+    $itens = [];
 
-    foreach($dados as $produto){
-        $codigo = $produto["codigoproduto"];
-        $nome = $produto["nomeproduto"];
-        $preco = $produto["precoproduto"];
+    foreach($dados as $item){
+        $nome = $item["nomeitem"];
+        $preco = $item["precoitem"];
 
         if ($preco >= 100){
-            $desconto = $preco * 0.10;
-            $preco = $preco - $desconto;
+            $imposto = $preco * 0.15;
+            $preco = $preco + $imposto;
         }
 
-        $produtos[$codigo] = [$nome, $preco];
+        $itens[$nome] = $preco;
     }
 
-    // Ordena pelo nome; compara com o próximo produto da array produtos
-    uasort($produtos, function($a, $b) {
-        return strcasecmp($a[0], $b[0]); 
-    });
+    // Ordena pelo valor
+    arsort($itens);
 
 
     echo "<div class='row text-center'>";
-    echo    "<h3>Produtos/precos:</h3>";
+    echo    "<h3>Itens/precos:</h3>";
     echo "</div>";
     echo "<div class='row pt-2 justify-content-center'>";
     echo "    <div class='col-md-2'>";
-            foreach($produtos as $codigo => $dadosProduto){
-                $nome = $dadosProduto[0];
-                $preco = $dadosProduto[1];
+            foreach($itens as $nome => $preco){
                 echo "<h5 class='border border-dark pt-3 pb-3 p-3'><strong>".$nome."</strong> <br> R$".(number_format($preco, 2))."</h5>";
             }
     echo "    </div>";

@@ -46,10 +46,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $produtos[$codigo] = [$nome, $preco];
     }
 
-    // Ordena pelo nome; compara com o próximo produto da array produtos
-    uasort($produtos, function($a, $b) {
-        return strcasecmp($a[0], $b[0]); 
-    });
+    // Ordena pelo nome; ordem decrescente
+    arsort($produtos);
 
 
     echo "<div class='row text-center'>";
