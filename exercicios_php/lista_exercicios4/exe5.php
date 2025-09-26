@@ -34,11 +34,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $titulo = $livro["titulo"];
         $estoque = $livro["qntestoque"];
 
-        $livros[$titulo] = $estoque;
+        $livros[$titulo] = [$titulo, $estoque];
     }
 
-    // Ordena pelo titulo
-    arsort($livros);
+    // Ordena pelo titulo. letras => a,b,c...
+    asort($livros);
 
 
     echo "<div class='row text-center'>";
@@ -46,7 +46,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     echo "</div>";
     echo "<div class='row pt-2 justify-content-center'>";
     echo "    <div class='col-md-4'>";
-            foreach($livros as $titulo => $estoque){
+            foreach($livros as $titulo => $dadosLivros){
+                $titulo = $dadosLivros[0];
+                $estoque = $dadosLivros[1];
                 // Se o estoque estiver baixo (menos que 6)
                 if($estoque <= 5){
                     echo "<span class ='input-group-text text-danger border border-danger'>Baixo estoque!</span>";
