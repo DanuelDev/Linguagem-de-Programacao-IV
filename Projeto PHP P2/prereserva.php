@@ -2,6 +2,7 @@
 <?php include "cabecalho.php" ?>
 <!--Controle de reservas em hotéis-->
 <div class="container">
+    
     <div class="container container-title">
         <h3 class="text-center forms-title">Pré-Reserva</h3>
     </div>
@@ -81,19 +82,29 @@
         <div class="row pt-2 justify-content-center">
             <div class="col-md-12 pb-3">
                 <label for="mensagem"><strong>Mensagem</strong> <i class="text-muted">*opcional</i></label>
-                <textarea class="form-control forms-label" id="mensagem" rows="3"></textarea>
+                <textarea class="form-control forms-label" id="mensagem" rows="4"></textarea>
             </div>
         </div>
     </div>
+    <br>
     <div class="row pt-3 pb-3 justify-content-center">
         <div class="col-md-2 text-center">
             <button type="submit" class="btn checkin-button"><strong>Fazer Pré-Reserva</strong></button>
         </div>
     </div>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-7">
+                <h2 class="h2-title"><strong>Sua Jornada Rumo ao Descanso Começa Aqui</strong>.<h2>
+                <p class="p1">
+                A ansiedade pela viagem é parte da magia. Enquanto você sonha com os momentos que estão por vir, nós preparamos tudo para que sua estadia seja perfeita.<br><br>
+                Faça já a sua Pré-Reserva e garanta o seu refúgio. Deixaremos o café quentinho, os lenços macios e o silêncio prontos para acalmar a sua mente e alma. 
+                Você só precisa se preocupar em chegar e se entregar ao descanso. Estamos de braços abertos para recebê-lo!
+                </p>
+            </div>
+        </div>
+    </div>
 </div>
 <br>
-<br>
-<br>
-<br>
-<br>
+
 <?php include "rodape.php" ?>

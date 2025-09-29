@@ -18,7 +18,7 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
     <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">O Hotel</a>
+        <a class="nav-link active" aria-current="page" href="index.php">O Hotel</a>
     </li>
         
 <li class="nav-item dropdown">
