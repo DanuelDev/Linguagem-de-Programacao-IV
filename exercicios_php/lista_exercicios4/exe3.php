@@ -43,7 +43,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $preco = $preco - $desconto;
         }
 
-        $produtos[$codigo] = [$nome, $preco];
+        $produtos[$codigo] = [
+            "nome" => $nome, 
+            "preco" => $preco
+        ];
     }
 
     // Ordena pelo nome; ordem decrescente
@@ -56,8 +59,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     echo "<div class='row pt-2 justify-content-center'>";
     echo "    <div class='col-md-2'>";
             foreach($produtos as $codigo => $dadosProduto){
-                $nome = $dadosProduto[0];
-                $preco = $dadosProduto[1];
+                $nome = $dadosProduto["nome"];
+                $preco = $dadosProduto["preco"];
                 echo "<h5 class='border border-dark pt-3 pb-3 p-3'><strong>".$nome."</strong> <br> R$".(number_format($preco, 2))."</h5>";
             }
     echo "    </div>";
