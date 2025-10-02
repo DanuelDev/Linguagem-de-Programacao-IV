@@ -34,8 +34,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $num = $_POST["num"];
 
     if($num != ""){
-        $num = (int)$num;
         if(is_numeric($num)){
+            $num = (int)$num;
             if($num >= 1){
                 $soma = 1;
                 $i = 1;
