@@ -6,6 +6,7 @@
     <div class="container container-title">
         <h3 class="text-center forms-title">Pré-Reserva</h3>
     </div>
+    <form action="" method="post">
     <!--=======================================-->
     <div class="container container-forms">
         <div class="row justify-content-center">
@@ -103,6 +104,7 @@
                 </p>
             </div>
         </div>
+        </form>
     </div>
 </div>
 <br>

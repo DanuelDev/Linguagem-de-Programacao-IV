@@ -4,7 +4,6 @@
 }
 .index-head {
     background-color: #ff3131;
-    border-top: 12px solid #8b0b0b;
     border-left: 12px solid #8b0b0b;
     border-right: 12px solid #8b0b0b;
 }
@@ -27,6 +26,15 @@
     margin-top: 100px;
     width: 800px;
 }
+.container-login-forms {
+    border: 2px solid #8b0b0b;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding-top: 10px;
+    width: 700px;
+    display: grid;
+    place-items: center;
+}
 .container-forms {
     border: 2px solid #8b0b0b;
     border-bottom-left-radius: 10px;
@@ -45,6 +53,10 @@
 }
 .forms-label {
     border-radius: 0%;
+    background-color: rgb(233, 233, 233);
+}
+.forms-label-login{
+    border-radius: 30px;
     background-color: rgb(233, 233, 233);
 }
 .checkin-button {
