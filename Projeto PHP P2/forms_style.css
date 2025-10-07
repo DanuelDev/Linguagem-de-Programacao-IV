@@ -4,7 +4,9 @@
 }
 .index-head {
     background-color: #ff3131;
-    border-color: #ff3131;
+    border-top: 12px solid #8b0b0b;
+    border-left: 12px solid #8b0b0b;
+    border-right: 12px solid #8b0b0b;
 }
 .p1 {
     font-family: "sans-serif";
@@ -50,7 +52,7 @@
     padding: 20px;
     border-radius: 50px;
     color: white;
-    background-color: #dc3545;
+    background-color: #be3535;
 }
 .rodape {
     background-color: #8b0b0b;
@@ -58,4 +60,26 @@
     text-align: center;
     justify-content: center;
     width: 100%;
+}
+.btn:hover{
+    background-color: #ff751f;
+}
+
+
+.dropdown-item:hover {
+    background-color: #ff751f;
+    font-size: large;
+    transition: all 0.5s ease;
+}
+
+.img-thumbnail:hover{
+    width: 120%;
+    height: auto;
+    transition: all 0.5s ease;
+}
+
+.img-wrapper {
+  
+  border-radius: 50%;
+  overflow: hidden
 }

@@ -89,7 +89,7 @@
     <br>
     <div class="row pt-3 pb-3 justify-content-center">
         <div class="col-md-2 text-center">
-            <button type="submit" class="btn checkin-button"><strong>Fazer Pré-Reserva</strong></button>
+            <button type="submit" class="btn checkin-button"><i class="bi bi-pencil-fill"></i><strong> Fazer Pré-Reserva</strong></button>
         </div>
     </div>
     <div class="container mt-5">

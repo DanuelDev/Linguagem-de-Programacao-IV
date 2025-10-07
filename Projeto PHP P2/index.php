@@ -2,20 +2,23 @@
 
 <div class="container-flex index-head">
     <div class="row justify-content-center">
-        <div class="col-md-12 text-center">
+        <div class="col-md-10 text-center">
             <div class="figure">
-                <img src="images\Borcelle.png" class="img-fluid" alt="" width="1200" height="auto">
+                <img src="images\Borcelle.png" class="img-fluid" alt="OnTelaria logo" width="auto" height="auto">
             </div>
         </div>
     </div>
-</div>
-<div class="container-flex">
-    <div class="row justify-content-center navbar">
-        <H5 class="text-center text-white"><strong>\/\/\/</strong></H5>
+    <div class="row justify-content-center" style="background-color: #8b0b0b;">
+        <div class="col-md-12 text-center" style="padding-top: 8px; color: white;">
+            <h5><i class="bi bi-caret-down-fill"></i></h5>
+        </div>
     </div>
 </div>
 <br>
 <br>
+<br><!--================================================-->
+<br><!--================================================-->
+<br><!--================================================-->
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-5">
@@ -26,18 +29,20 @@
                 Esta é uma arquitetura que não apenas abriga, mas acolhe com a calorosa essência do Brasil.</p>
         </div>
         <div class="col-md-5">
-            <img src="images\OnTelaria-Hotel-image.jpg" class="img-thumbnail navbar" alt="" width="auto" height="auto"><p>Imagem: Gemini</p>
+            <img src="images\OnTelaria-Hotel-image.jpg" class="img-thumbnail img-wrapper" style="background-color: #8b0b0b;" alt="" width="auto" height="auto"><p>Imagem: Gemini</p>
         </div>
     </div>
 </div>
 <br><!--================================================-->
+<br><!--================================================-->
+<br><!--================================================-->
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-5">
-            <img src="images\feijoada.jpg" class="img-thumbnail navbar" alt="" width="auto" height="auto"><p>Imagem: Google</p>
+            <img src="images\feijoada.jpg" class="img-thumbnail img-wrapper" style="background-color: #ff751f;" alt="" width="auto" height="auto"><p>Imagem: Google</p>
         </div>
         <div class="col-md-5">
-            <h2 class="h2-title"><strong>Sabores do Brasil</strong></h2><br>
+            <h2 class="h2-title" style="border-top: 2px solid #ff751f;"><strong>Sabores do Brasil</strong></h2><br>
             <p class="p1">
                 A cozinha é uma celebração vibrante da alma brasileira.
                 Aqui, cada prato é uma história de sabores autênticos, uma homenagem às riquezas de nosso território e um convite para uma jornada sensorial inesquecível.
@@ -50,6 +55,8 @@
     </div>
 </div>
 <br><!--================================================-->
+<br><!--================================================-->
+<br><!--================================================-->
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-5">
@@ -61,8 +68,11 @@
                 Este pedaço de natureza é o complemento essencial para a sua estadia: um verdadeiro respiro para a alma, sem precisar sair do hotel.</p>
         </div>
         <div class="col-md-5">
-            <img src="images\jardim.jpg" class="img-thumbnail navbar" alt="" width="auto" height="auto"><p>Imagem: Gemini</p>
+            <img src="images\jardim.jpg" class="img-thumbnail img-wrapper" style="background-color: #8b0b0b;" alt="" width="auto" height="auto"><p>Imagem: Gemini</p>
         </div>
     </div>
 </div>
+<br><!--================================================-->
+<br><!--================================================-->
+<br><!--================================================-->
 <?php include "rodape.php" ?>
