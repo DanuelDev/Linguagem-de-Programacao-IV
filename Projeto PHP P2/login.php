@@ -3,7 +3,16 @@
 <form action="" method="post">
 
     <div class="container" style="margin-bottom: 100px">
-
+        <div class="container" style="width: 500px;">
+    <?php
+    if(isset($_GET["cadastro"])){
+        $cadastro = $_GET["cadastro"];
+        if($cadastro){
+            echo"<p class='text-success text-center'><strong>Cadastro realizado com sucesso!</strong></p>";
+        }
+    }
+    ?>
+        </div>
         <div class="container container-title" style="width: 500px;">
             <h3 class="text-center forms-title">Login</h3>
         </div>
