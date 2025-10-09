@@ -26,9 +26,9 @@
             if($stmt->execute([$nome, $email, $telefone, $cpf, $nascimento, $endereco, $senhaHash])){
                 header("location: login.php?cadastro=true");
             }
-        }catch(Exception $e){
-            echo "Erro ao executar o comando SQL: ".$e->getMessage();
-        }
+            }catch(Exception $e){
+                echo "Erro ao executar o comando SQL: ".$e->getMessage();
+            }
         }
     }
 ?>
