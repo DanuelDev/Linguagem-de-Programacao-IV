@@ -1,14 +1,19 @@
+<?php
+  session_start();
+  if(!isset($_SESSION['acesso']))
+    header('location: ..\index.php');
+?>
 <!doctype html>
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>OnTelaria</title>
-<link rel="icon" type="image/x-icon" href="images/icon.ico">
+<link rel="icon" type="image/x-icon" href="../images/icon.ico">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-<link href="forms_style.css" rel="stylesheet">
+<link href="..\forms_style.css" rel="stylesheet">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark navbar">
@@ -16,7 +21,7 @@
     
     <a class="navbar-brand" href="#">
       <span>
-        <img src="images\ico-transparent.png" style="width: 50px; height: 50px; border: solid 3px white; border-radius: 30px;">
+        <img src="..\images\ico-transparent.png" style="width: 50px; height: 50px; border: solid 3px white; border-radius: 30px;">
         <strong>nTelaria</strong>
       </span>
     </a>
@@ -51,9 +56,9 @@
         </ul>
       </li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a class="nav-link" href="registrar.php">Registrar</a></li>
-        <li><a class="nav-link active" style="background-color: #ff751f; border-radius: 5px; color:black; text-align:center;" href="login.php"><span class="bi bi-person-circle"></span><strong> Login</strong></a></li>
+      <ul class="nav navbar-nav navbar-right" style="color: white;">
+        <li><p style="padding-right: 15px; margin-top: 15px; border-right: 3px solid white;"><strong><?= $_SESSION['nome'] ?></strong></p></li>
+        <li><a href="..\logout.php" class="nav-link active" style="color: #ff751f; padding-top: 15px;"><strong>Sair</strong> <i class="bi bi-door-open"></i></a></li>
       </ul>
     </div>
   </div>

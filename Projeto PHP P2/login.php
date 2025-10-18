@@ -11,6 +11,29 @@
             echo"<p class='text-success text-center'><strong>Cadastro realizado com sucesso!</strong></p>";
         }
     }
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        require("db\conexao.php");
+        $email = $_POST['cliente-email'];
+        $senha = $_POST['cliente-senha'];
+
+        try{
+            $stmt = $pdo->prepare("SELECT * FROM hospedes WHERE email = ?");
+            $stmt->execute([$email]);
+            $hospede = $stmt->fetch(PDO::FETCH_ASSOC);
+            if($hospede && password_verify($senha, $hospede['senha'])){
+                session_start();
+                $_SESSION['acesso'] = true;
+                $_SESSION['nome'] = $hospede['nome'];
+                $_SESSION['email'] = $hospede['email'];
+                $_SESSION['telefone'] = $hospede['telefone'];
+                header('location: hospedes\index.php');
+            } else{
+                echo "<p class='text-danger text-center'><strong>Credenciais inválidas!</strong></p>";
+            }
+        }catch(Exception $e){
+            echo "Erro: ".$e->getMessage();
+        }
+    }
     ?>
         </div>
         <div class="container container-title" style="width: 500px;">
