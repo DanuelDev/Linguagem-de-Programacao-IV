@@ -19,9 +19,9 @@ USE `projetophp` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `projetophp`.`usuario` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(255) NOT NULL,
   `email` VARCHAR(255) NOT NULL,
-  `senha` VARCHAR(255) NOT NULL,
+  `nome` VARCHAR(255) NOT NULL,
+  `senha` TEXT NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
