@@ -1,7 +1,7 @@
 <?php
     $dominio = "mysql:host=localhost;dbname=ontelaria";
     $usuario = "root";
-    $senha = "123";
+    $senha = ""; #123
 
     try{
         $pdo = new PDO($dominio, $usuario, $senha);

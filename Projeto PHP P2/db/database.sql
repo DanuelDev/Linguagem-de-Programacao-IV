@@ -17,8 +17,26 @@ CREATE TABLE hospedes (
     telefone VARCHAR(20),
     cpf VARCHAR(14) UNIQUE,
     data_nascimento DATE,
-    endereco TEXT
+    endereco TEXT,
+    senha VARCHAR(100)
 );
+
+CREATE TABLE funcionarios (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE,
+    setor VARCHAR(50) NOT NULL,
+    cpf VARCHAR(100) UNIQUE,
+    senha VARCHAR(100)
+)
+
+CREATE TABLE admin (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE,
+    cpf VARCHAR(100) UNIQUE,
+    senha VARCHAR(100)
+)
 
 CREATE TABLE reservas (
     id INT PRIMARY KEY AUTO_INCREMENT,

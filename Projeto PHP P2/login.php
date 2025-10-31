@@ -28,7 +28,27 @@
                 $_SESSION['telefone'] = $hospede['telefone'];
                 header('location: hospedes\index.php');
             } else{
-                echo "<p class='text-danger text-center'><strong>Credenciais inválidas!</strong></p>";
+                $stmt = $pdo->prepare("SELECT * FROM funcionarios WHERE email = ?");
+                $stmt->execute([$email]);
+                $funcionario = $stmt->fetch(PDO::FETCH_ASSOC);
+                if($funcionario && password_verify($senha, $funcionario['senha'])){
+                    session_start();
+                    $_SESSION['nome'] = $funcionario['nome'];
+                    $_SESSION['email'] = $funcionario['email'];
+                    header('location: funcionarios\index.php');
+                }else{
+                    $stmt = $pdo->prepare("SELECT * FROM admin WHERE email = ?");
+                    $stmt->execute([$email]);
+                    $admin = $stmt->fetch(PDO::FETCH_ASSOC);
+                    if($admin && password_verify($senha, $admin['senha'])){
+                        session_start();
+                        $_SESSION['nome'] = $admin['nome'];
+                        $_SESSION['email'] = $admin['email'];
+                        header('location: admin\index.php');
+                    }else{
+                        echo "<p class='text-danger text-center'><strong>Credenciais inválidas!</strong></p>";
+                    }
+                }
             }
         }catch(Exception $e){
             echo "Erro: ".$e->getMessage();
