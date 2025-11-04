@@ -34,6 +34,7 @@
                 if($funcionario && password_verify($senha, $funcionario['senha'])){
                     session_start();
                     $_SESSION['acesso'] = true;
+                    $_SESSION['id'] = $funcionario['id'];
                     $_SESSION['nome'] = $funcionario['nome'];
                     $_SESSION['email'] = $funcionario['email'];
                     header('location: funcionarios\index.php');
