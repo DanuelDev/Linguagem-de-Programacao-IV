@@ -47,6 +47,17 @@
         </ul>
       </li>
 
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Consultar
+        </a>
+        <ul class="dropdown-menu" style="text-align:center;" aria-labelledby="dropdown1">
+          <li><a class="dropdown-item dropdown-content" href="consultarcliente.php"><i class="bi bi-calendar-check-fill"></i> Consultar Clientes</a></li>
+          <li><a class="dropdown-item dropdown-content" href="consultarreservas.php"><i class="bi bi-calendar-check-fill"></i> Consultar Reservas</a></li>
+          <li><a class="dropdown-item dropdown-content" href="consultarquartos.php"><i class="bi bi-calendar-check-fill"></i> Consultar Quartos</a></li>
+        </ul>
+      </li>
+
       </ul>
       <ul class="nav navbar-nav navbar-right" style="color: white;">
         <li><p style="padding-right: 15px; margin-top: 15px; border-right: 3px solid white;"><strong><?= $_SESSION['nome'] ?></strong></p></li>

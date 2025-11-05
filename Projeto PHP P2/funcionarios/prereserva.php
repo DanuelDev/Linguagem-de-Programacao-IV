@@ -2,6 +2,16 @@
 <?php
     require("cabecalho.php");
     require("..\db\conexao.php");
+
+    function calcularDias($checkin, $checkout) {
+        $data_inicio = new DateTime($checkin);
+        $data_fim = new DateTime($checkout);
+        
+        $diferenca = $data_inicio->diff($data_fim);
+        
+        return $diferenca->days;
+    }
+
     try{
         $stmt = $pdo->query("SELECT * FROM reservas");
         $reservas = $stmt->fetchAll();
@@ -24,11 +34,23 @@
         }
         $checkindata = $_POST['checkindata'];
         $checkoutdata = $_POST['checkoutdata'];
+        $totaldias = calcularDias($checkindata, $checkoutdata);
+        
         $valor = $_POST['valor'];
+        $valordiario = $valor / $totaldias;
         $mensagem = $_POST['mensagem'];
+        
+        $criancas = $_POST['criancas'];
+        $adultos = $_POST['adultos'];
+        $capacidade = intval($criancas) + intval($adultos);
+        $numeroquarto = $_POST['numero_quarto'];
+        $apartamento = $_POST['apartamento'];
         try{
             $stmt = $pdo->prepare('INSERT INTO reservas (hospede_id, data_inicio, data_fim, valor_total, observacoes) VALUES (?, ?, ?, ?, ?)');
             $stmt->execute([$hospede_id, $checkindata, $checkoutdata, $valor, $mensagem]);
+
+            $stmt = $pdo->prepare('INSERT INTO quartos (id_hospede, numero, tipo, capacidade, preco_diaria, status) VALUES (?, ?, ?, ?, ?, ?)');
+            $stmt->execute([$hospede_id, $numeroquarto, $apartamento, $capacidade, $valordiario, 'indisponivel']);
         }catch(Exception $e){
             echo 'Erro ao inserir: '.$e->getMessage();
         }
@@ -39,7 +61,7 @@
 <div class="container">
     
     <div class="container container-title">
-        <h3 class="text-center forms-title">Pré-Reserva</h3>
+        <h3 class="text-center forms-title">Registrar Reserva</h3>
     </div>
     <form action="" method="post">
     <!--=======================================-->
@@ -49,9 +71,12 @@
                 <label for="nome"><strong>Nome</strong></label>
                 <input type="text" class="form-control forms-label" name="nome" id="nome" require="">
             </div>
-            <div class="col-md-5">
+            <div class="col-md-4">
                 <label for="valor"><strong>Valor</strong></label>
-                <input type="text" class="form-control forms-label" name="valor" id="valor" require="">
+                <div class="input-group">
+                    <span class="input-group-text">R$</span>
+                    <input type="text" class="form-control forms-label" name="valor" id="valor" require="">
+                </div>
             </div>
         </div>
         <br> <!--=======================================-->
@@ -64,10 +89,42 @@
                 <label for="checkoutdata"><strong>Check-Out</strong></label>
                 <input type="date" class="form-control forms-label" name="checkoutdata" id="checkoutdata" placeholder="dia/mês" require="">
             </div>
+            <div class="col-md-2">
+                <label for="adultos"><strong>Adultos</strong></label>
+                <select class="form-select forms-label" name="adultos" id="adultos" require="">
+                    <option selected>---</option>
+                    <?php for($i=1; $i <= 8; $i++):?>
+                    <option value=<?=$i?>><?=$i?></option>
+                    <?php endfor; ?>;
+                </select>
+            </div>
+            <div class="col-md-2">
+                <label for="criancas"><strong>Crianças</strong></label>
+                <select class="form-select forms-label" name="criancas" id="criancas" require="">
+                    <option selected>---</option>
+                    <?php for($i=1; $i <= 8; $i++):?>
+                    <option value=<?=$i?>><?=$i?></option>
+                    <?php endfor; ?>;
+                </select>
+            </div>
+            <div class="col-md-2">
+                <label for="numero_quarto"><strong>Número</strong></label>
+                <input type="text" class="form-control forms-label" name="numero_quarto" id="numero_quarto" require="">
+            </div>
         </div>
-        <br> <!--=======================================-->
-        <div class="row pt-2">
-            <p>Check-in a partir das <strong>14hs</strong></p>
+        <div class="row pt-2 justify-content-center">
+            <div class="col-md-4">
+                <label for="apartamento"><strong>Apartamento</strong></label>
+                <select class="form-select forms-label" name="apartamento" id="apartamento" require="">
+                    <option selected>---</option>
+                    <option value="suite">Suíte</option>
+                    <option value="luxotriplo">Luxo Triplo</option>
+                    <option value="luxoduplo">Luxo Duplo</option>
+                    <option value="luxocasal">Luxo Casal</option>
+                    <option value="luxocasal">Suíte Conjugada</option>
+                    <option value="apartamentomini">Apartamento Mini</option>
+                </select>
+            </div>
         </div>
         <!--=======================================-->
         <div class="row pt-2 justify-content-center">
