@@ -30,7 +30,7 @@
 <div class="container" style="margin-top: 100px">
     <h2>Quartos</h2>
     <table class="table table-hover table-striped">
-        <thead class="thead-dark">
+        <thead class="table-dark">
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Nome</th>
@@ -59,7 +59,7 @@
                     echo "Erro ao consultar hospedes: ".$e->getMessage();
                 }
                 ?>
-                <td><?= $d['id'] ?></td>
+                <td><strong><?= $d['id'] ?></strong></td>
                 <td><?= $nome ?></td>
                 <td><?= $d['numero'] ?></td>
                 <td><?= $d['tipo'] ?></td>

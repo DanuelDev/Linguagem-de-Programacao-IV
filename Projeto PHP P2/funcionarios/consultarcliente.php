@@ -28,7 +28,7 @@
     <h2>Clientes</h2>
     <a href="nova_categoria.php" class="btn btn-success mb-3">Novo Registro</a>
     <table class="table table-hover table-striped" style="margin-top: 20px; margin-bottom: 50px">
-        <thead>
+        <thead class="table-dark">
             <tr>
                 <th>ID</th>
                 <th>Nome</th>

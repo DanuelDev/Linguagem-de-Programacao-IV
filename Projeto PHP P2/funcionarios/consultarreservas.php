@@ -31,7 +31,7 @@
     <h2>Reservas</h2>
     <a href="prereserva.php" class="btn btn-success mb-3">Nova Reserva</a>
     <table class="table table-hover table-striped" style="margin-top: 20px; margin-bottom: 50px">
-        <thead>
+        <thead class="table-dark">
             <tr>
                 <th>ID</th>
                 <th>Nome</th>
@@ -60,12 +60,12 @@
                     echo "Erro ao consultar hospedes: ".$e->getMessage();
                 }
                 ?>
-                <td><?= $d['hospede_id'] ?></td>
+                <td><strong><?= $d['hospede_id'] ?></strong></td>
                 <td><?= $nome ?></td>
                 <td><?= $d['data_inicio'] ?></td>
                 <td><?= $d['data_fim'] ?></td>
                 <td><?= $d['status'] ?></td>
-                <td class="d-flex">
+                <td class="d-flex gap-2">
                     <a href="editar_categoria.php?id=<?= $d['id'] ?>" class="btn btn-sm btn-warning">Editar</a>
                     <a href="consultar_categoria.php?id=<?= $d['id'] ?>" class="btn btn-sm btn-info">Consultar</a>
                 </td>

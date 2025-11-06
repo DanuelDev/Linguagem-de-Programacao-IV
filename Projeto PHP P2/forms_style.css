@@ -45,10 +45,7 @@
 .table{
     margin-top: 20px;
     margin-bottom: 50px;
-    border: 2px solid #8b0b0b;
-}
-.thead-title{
-    background-color: #8b0b0b;
+    border-bottom: 3px solid #212529;
 }
 .forms-message {
     padding: 5px;
