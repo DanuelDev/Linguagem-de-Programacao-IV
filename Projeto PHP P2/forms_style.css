@@ -42,6 +42,14 @@
     padding-top: 10px;
     width: 800px;
 }
+.table{
+    margin-top: 20px;
+    margin-bottom: 50px;
+    border: 2px solid #8b0b0b;
+}
+.thead-title{
+    background-color: #8b0b0b;
+}
 .forms-message {
     padding: 5px;
 }

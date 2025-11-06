@@ -27,18 +27,17 @@
     }
 ?>
 
-<div class="container container-primary" style="margin-top: 100px">
-    <h2>Reservas</h2>
-    <a href="prereserva.php" class="btn btn-success mb-3">Nova Reserva</a>
-    <table class="table table-hover table-striped" style="margin-top: 20px; margin-bottom: 50px">
-        <thead>
+<div class="container" style="margin-top: 100px">
+    <h2>Quartos</h2>
+    <table class="table table-hover table-striped">
+        <thead class="thead-dark">
             <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>N. Quarto</th>
-                <th>Tipo</th>
-                <th>Status</th>
-                <th>Ações</th>
+                <th scope="col">ID</th>
+                <th scope="col">Nome</th>
+                <th scope="col">N. Quarto</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Status</th>
+                <th scope="col">Ações</th>
             </tr>
         </thead>
         <tbody>

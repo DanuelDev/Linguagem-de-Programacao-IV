@@ -42,7 +42,7 @@
                 foreach($dados as $d):
             ?>
             <tr>
-                <td><?= $d['id'] ?></td>
+                <td><strong><?= $d['id'] ?></strong></td>
                 <td><?= $d['nome'] ?></td>
                 <td><?= $d['email'] ?></td>
                 <td><?= $d['telefone'] ?></td>

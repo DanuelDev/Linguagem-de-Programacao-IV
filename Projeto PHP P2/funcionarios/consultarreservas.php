@@ -65,7 +65,7 @@
                 <td><?= $d['data_inicio'] ?></td>
                 <td><?= $d['data_fim'] ?></td>
                 <td><?= $d['status'] ?></td>
-                <td class="d-flex gap-2">
+                <td class="d-flex">
                     <a href="editar_categoria.php?id=<?= $d['id'] ?>" class="btn btn-sm btn-warning">Editar</a>
                     <a href="consultar_categoria.php?id=<?= $d['id'] ?>" class="btn btn-sm btn-info">Consultar</a>
                 </td>
