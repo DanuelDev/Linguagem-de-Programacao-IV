@@ -19,7 +19,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12 text-center">
-        <h2 style="font-family: 'Catamaran';">Seja bem vinda(o), colaborador <strong style="color: #8b0b0b;"><?= $_SESSION['nome'] ?></strong>.</h2>
+        <h2 style="font-family: 'Catamaran';">É um prazer tê-lo conosco, colaborador <strong style="color: #8b0b0b;"><?= $_SESSION['nome'] ?></strong>!</h2>
         </div>
     </div>
 </div>

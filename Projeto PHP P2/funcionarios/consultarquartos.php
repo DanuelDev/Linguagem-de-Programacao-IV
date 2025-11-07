@@ -34,7 +34,7 @@
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Nome</th>
-                <th scope="col">N. Quarto</th>
+                <th scope="col">Nº Quarto</th>
                 <th scope="col">Tipo</th>
                 <th scope="col">Status</th>
                 <th scope="col">Ações</th>
@@ -47,9 +47,9 @@
             <tr>
                 <?php 
                 try{
-                    $sql = "SELECT nome FROM hospedes WHERE id = :id_hospede";
+                    $sql = "SELECT nome FROM hospedes WHERE id = :hospede_id";
                     $stmt = $pdo->prepare($sql);
-                    $stmt->bindParam(':id_hospede', $d['id_hospede']);
+                    $stmt->bindParam(':hospede_id', $d['hospede_id']);
                         $stmt->execute();
 
                     $retorno = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -66,7 +66,7 @@
                 <td><?= $d['status'] ?></td>
                 <td class="d-flex gap-2">
                     <a href="editar_categoria.php?id=<?= $d['id'] ?>" class="btn btn-sm btn-warning">Editar</a>
-                    <a href="consultar_categoria.php?id=<?= $d['id'] ?>" class="btn btn-sm btn-info">Consultar</a>
+                    <a href="consultarquartos_detalhes.php?id=<?= $d['id'] ?>" class="btn btn-sm btn-info">Consultar</a>
                 </td>
             </tr>
             <?php

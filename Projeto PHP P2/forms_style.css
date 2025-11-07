@@ -100,3 +100,9 @@
   border-radius: 50%;
   overflow: hidden
 }
+
+@media print {
+    .no-print{
+      display: none !important;
+    }
+  }

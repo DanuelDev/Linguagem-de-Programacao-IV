@@ -1,6 +1,6 @@
 <?php
     if($_SERVER["REQUEST_METHOD"] == "POST"){
-        require("db\conexao.php");
+        require("..\db\conexao.php");
         $email = $_POST["cliente-email"];
         $nome = $_POST["cliente-nome"];
         $senha = $_POST["cliente-senha"];
@@ -24,7 +24,7 @@
             try{
             $stmt = $pdo->prepare("INSERT INTO hospedes (nome, email, telefone, cpf, data_nascimento, endereco, senha) VALUES (?, ?, ?, ?, ?, ?, ?)");
             if($stmt->execute([$nome, $email, $telefone, $cpf, $nascimento, $endereco, $senhaHash])){
-                header("location: login.php?cadastro=true");
+                header("location: index.php");
             }
             }catch(Exception $e){
                 echo "Erro ao executar o comando SQL: ".$e->getMessage();
@@ -37,13 +37,13 @@
 
 <form action="" method="post">
 
-    <div class="container-flex" style="margin-bottom: 100px">
+    <div class="container-flex" style="margin-bottom: 100px; border-color: #212529;">
 
-        <div class="container container-title" style="width: 700px;">
-            <h3 class="text-center forms-title">Registrar</h3>
+        <div class="container container-title" style="width: 700px; background-color: #212529; border-color: #212529;">
+            <h3 class="text-center forms-title">Registrar Cliente</h3>
         </div>
         <!--=======================================-->
-        <div class="container container-login-forms">
+        <div class="container container-login-forms" style="border-color: #212529;">
             <div class="col-12 text-center">
                 <h5><strong>Dados Pessoais</strong></h5>
             </div>
@@ -95,7 +95,7 @@
                 </div>
             </div>
             <!--=======================================-->
-            <div class="col-12 text-center" style="border-top: 2px solid #8b0b0b;">
+            <div class="col-12 text-center" style="border-top: 2px solid #212529;">
                 <br>
                 <h5><strong>Endereço</strong></h5>
             </div>
@@ -153,9 +153,6 @@
             </div>
         </div>
         <br>
-        <div class="container" style="width: 700px;">
-            <p><a href="login.php">Já possui uma conta?</a></p>
-        </div>
     </div>
 </form>
 <br>

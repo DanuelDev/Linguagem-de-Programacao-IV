@@ -1,15 +1,5 @@
 create schema OnTelaria;
 
-CREATE TABLE quartos (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-    numero VARCHAR(10) NOT NULL UNIQUE,
-    tipo VARCHAR(50) NOT NULL,
-    capacidade INT NOT NULL,
-    preco_diaria DECIMAL(10, 2) NOT NULL,
-    descricao TEXT,
-    status ENUM('disponivel', 'indisponivel', 'manutencao') DEFAULT 'disponivel'
-);
-
 CREATE TABLE hospedes (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100) NOT NULL,
@@ -37,6 +27,18 @@ CREATE TABLE admin (
     cpf VARCHAR(100) UNIQUE,
     senha VARCHAR(100)
 )
+
+CREATE TABLE quartos (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    hospede_id INT NOT NULL,
+    numero VARCHAR(10) NOT NULL UNIQUE,
+    tipo VARCHAR(50) NOT NULL,
+    capacidade INT NOT NULL,
+    preco_diaria DECIMAL(10, 2) NOT NULL,
+    descricao TEXT,
+    FOREIGN KEY (hospede_id) REFERENCES hospedes(id) ON DELETE CASCADE,
+    status ENUM('disponivel', 'indisponivel', 'manutencao') DEFAULT 'disponivel'
+);
 
 CREATE TABLE reservas (
     id INT PRIMARY KEY AUTO_INCREMENT,

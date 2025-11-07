@@ -26,7 +26,7 @@
 
 <div class="container container-primary" style="margin-top: 100px">
     <h2>Clientes</h2>
-    <a href="nova_categoria.php" class="btn btn-success mb-3">Novo Registro</a>
+    <a href="registrar.php" class="btn btn-success mb-3">Novo Registro</a>
     <table class="table table-hover table-striped" style="margin-top: 20px; margin-bottom: 50px">
         <thead class="table-dark">
             <tr>
@@ -47,8 +47,8 @@
                 <td><?= $d['email'] ?></td>
                 <td><?= $d['telefone'] ?></td>
                 <td class="d-flex gap-2">
-                    <a href="editar_categoria.php?id=<?= $d['id'] ?>" class="btn btn-sm btn-warning">Editar</a>
-                    <a href="consultar_categoria.php?id=<?= $d['id'] ?>" class="btn btn-sm btn-info">Consultar</a>
+                    <a href="editarcliente.php?id=<?= $d['id'] ?>" class="btn btn-sm btn-warning">Editar</a>
+                    <a href="consultarcliente_detalhes.php?id=<?= $d['id'] ?>" class="btn btn-sm btn-info">Consultar</a>
                 </td>
             </tr>
             <?php

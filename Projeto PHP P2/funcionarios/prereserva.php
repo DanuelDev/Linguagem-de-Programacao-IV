@@ -49,7 +49,7 @@
             $stmt = $pdo->prepare('INSERT INTO reservas (hospede_id, data_inicio, data_fim, valor_total, observacoes) VALUES (?, ?, ?, ?, ?)');
             $stmt->execute([$hospede_id, $checkindata, $checkoutdata, $valor, $mensagem]);
 
-            $stmt = $pdo->prepare('INSERT INTO quartos (id_hospede, numero, tipo, capacidade, preco_diaria, status) VALUES (?, ?, ?, ?, ?, ?)');
+            $stmt = $pdo->prepare('INSERT INTO quartos (hospede_id, numero, tipo, capacidade, preco_diaria, status) VALUES (?, ?, ?, ?, ?, ?)');
             $stmt->execute([$hospede_id, $numeroquarto, $apartamento, $capacidade, $valordiario, 'indisponivel']);
         }catch(Exception $e){
             echo 'Erro ao inserir: '.$e->getMessage();
@@ -60,12 +60,12 @@
 <!--Controle de reservas em hotéis-->
 <div class="container">
     
-    <div class="container container-title">
+    <div class="container container-title" style="border-color: #212529; background-color: #212529;">
         <h3 class="text-center forms-title">Registrar Reserva</h3>
     </div>
     <form action="" method="post">
     <!--=======================================-->
-    <div class="container container-forms">
+    <div class="container container-forms" style="border-color: #212529;">
         <div class="row justify-content-center">
             <div class="col-md-5">
                 <label for="nome"><strong>Nome</strong></label>
