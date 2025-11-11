@@ -4,7 +4,7 @@
     if($_SERVER['REQUEST_METHOD'] == "GET"){
         try{
             $stmt = $pdo->prepare("SELECT * from reservas WHERE hospede_id = ?");
-            $stmt->execute([$_GET['id']]);
+            $stmt->execute([$_GET['id']]);  
             $reserva = $stmt->fetch(PDO::FETCH_ASSOC);
 
             $stmt = $pdo->prepare("SELECT * from hospedes WHERE id = ?");

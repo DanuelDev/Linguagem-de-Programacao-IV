@@ -32,10 +32,10 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
       <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.php">O Hotel</a>
+          <a class="nav-link active no-print" aria-current="page" href="index.php">O Hotel</a>
       </li>
           
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown no-print">
         <a class="nav-link dropdown-toggle" href="#" id="dropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           Administrar e registrar
         </a>
@@ -47,7 +47,7 @@
         </ul>
       </li>
 
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown no-print">
         <a class="nav-link dropdown-toggle" href="#" id="dropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           Consultar
         </a>
@@ -61,7 +61,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right" style="color: white;">
         <li><p style="padding-right: 15px; margin-top: 15px; border-right: 3px solid white;"><strong><?= $_SESSION['nome'] ?></strong></p></li>
-        <li><a href="..\logout.php" class="nav-link active" style="color: #ff751f; padding-top: 15px;"><strong>Sair</strong> <i class="bi bi-door-open"></i></a></li>
+        <li><a href="..\logout.php" class="nav-link active no-print" style="color: #ff751f; padding-top: 15px;"><strong>Sair</strong> <i class="bi bi-door-open"></i></a></li>
       </ul>
     </div>
   </div>

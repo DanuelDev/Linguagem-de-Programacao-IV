@@ -8,7 +8,7 @@
     if(isset($_GET["cadastro"])){
         $cadastro = $_GET["cadastro"];
         if($cadastro){
-            echo"<p class='text-success text-center'><strong>Cadastro realizado com sucesso!</strong></p>";
+            echo"<p class='message-success'><strong>Cadastro realizado com sucesso!</strong></p>";
         }
     }
     if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -23,6 +23,7 @@
             if($hospede && password_verify($senha, $hospede['senha'])){
                 session_start();
                 $_SESSION['acesso'] = true;
+                $_SESSION['id'] = $hospede['id'];
                 $_SESSION['nome'] = $hospede['nome'];
                 $_SESSION['email'] = $hospede['email'];
                 $_SESSION['telefone'] = $hospede['telefone'];

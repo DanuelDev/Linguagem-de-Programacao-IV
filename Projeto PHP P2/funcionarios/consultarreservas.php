@@ -66,8 +66,8 @@
                 <td><?= $d['data_fim'] ?></td>
                 <td><?= $d['status'] ?></td>
                 <td class="d-flex gap-2">
-                    <a href="editar_categoria.php?id=<?= $d['id'] ?>" class="btn btn-sm btn-warning">Editar</a>
-                    <a href="consultarreservas_detalhes.php?id=<?= $d['id'] ?>" class="btn btn-sm btn-info">Consultar</a>
+                    <a href="editarreservas.php?id=<?= $d['hospede_id'] ?>" class="btn btn-sm btn-warning">Editar</a>
+                    <a href="consultarreservas_detalhes.php?id=<?= $d['hospede_id'] ?>" class="btn btn-sm btn-info">Consultar</a>
                 </td>
             </tr>
             <?php

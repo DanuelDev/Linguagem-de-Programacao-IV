@@ -101,6 +101,24 @@
   overflow: hidden
 }
 
+.message-warning{
+    background-color: khaki;
+    padding: 10px;
+    text-align: center;
+}
+
+.message-success{
+    background-color: lightgreen;
+    padding: 10px;
+    text-align: center;
+}
+
+.message-error{
+    background-color: crimson;
+    padding: 10px;
+    text-align: center;
+}
+
 @media print {
     .no-print{
       display: none !important;

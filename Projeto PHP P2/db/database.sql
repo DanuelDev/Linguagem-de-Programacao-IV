@@ -1,4 +1,5 @@
-create schema OnTelaria;
+CREATE SCHEMA IF NOT EXISTS ontelaria;
+USE ontelaria;
 
 CREATE TABLE hospedes (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -18,7 +19,7 @@ CREATE TABLE funcionarios (
     setor VARCHAR(50) NOT NULL,
     cpf VARCHAR(100) UNIQUE,
     senha VARCHAR(100)
-)
+);
 
 CREATE TABLE admin (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -26,7 +27,7 @@ CREATE TABLE admin (
     email VARCHAR(100) UNIQUE,
     cpf VARCHAR(100) UNIQUE,
     senha VARCHAR(100)
-)
+);
 
 CREATE TABLE quartos (
 	id INT PRIMARY KEY AUTO_INCREMENT,

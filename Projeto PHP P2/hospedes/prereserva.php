@@ -1,7 +1,62 @@
 
-<?php include "cabecalho.php";
-date_default_timezone_set("America/Sao_Paulo");
-$data = date("Y-m-d", strtotime("+1 day"));
+<?php 
+    include "cabecalho.php";
+    require("..\db\conexao.php");
+
+    date_default_timezone_set("America/Sao_Paulo");
+    $data = date("Y-m-d", strtotime("+1 day"));
+
+    function calcularDias($checkin, $checkout) {
+        $data_inicio = new DateTime($checkin);
+        $data_fim = new DateTime($checkout);
+        
+        $diferenca = $data_inicio->diff($data_fim);
+        
+        return $diferenca->days;
+    }
+
+    try{
+        $stmt = $pdo->query("SELECT * FROM reservas");
+        $reservas = $stmt->fetchAll();
+
+
+    }catch(Exception $e){
+        echo "Erro ao consultar reservas: ".$e->getMessage();
+    }
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        // Procura no database pelo id do usuário baseado no nome
+        $checkindata = $_POST['checkindata'];
+        $checkoutdata = $_POST['checkoutdata'];
+        $totaldias = calcularDias($checkindata, $checkoutdata);
+        
+        $mensagem = $_POST['mensagem'];
+        $hospede_id = $_SESSION['id'];
+        
+        $criancas = $_POST['criancas'];
+        $adultos = $_POST['adultos'];
+        $capacidade = intval($criancas) + intval($adultos);
+        try{
+            $sql = "SELECT * FROM reservas WHERE hospede_id = :hospede_id";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(':hospede_id', $_SESSION['id']);
+            $stmt->execute();
+
+            $retorno = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if (!$retorno) {
+                $stmt = $pdo->prepare('INSERT INTO reservas (hospede_id, data_inicio, data_fim, observacoes) VALUES (?, ?, ?, ?)');
+                $stmt->execute([$hospede_id, $checkindata, $checkoutdata, $mensagem]);
+            } else {
+                echo "<p class='text-center message-warning'><strong>Atenção, já há uma reserva nesse nome!</strong></p>";
+            }
+
+            //$stmt = $pdo->prepare('INSERT INTO quartos (hospede_id, numero, tipo, capacidade, preco_diaria, status) VALUES (?, ?, ?, ?, ?, ?)');
+            //$stmt->execute([$hospede_id, $numeroquarto, $apartamento, $capacidade, $valordiario, 'indisponivel']);
+        }catch(Exception $e){
+            echo 'Erro ao inserir: '.$e->getMessage();
+        }
+    }
 ?>
 
 <!--Controle de reservas em hotéis-->
@@ -40,18 +95,7 @@ $data = date("Y-m-d", strtotime("+1 day"));
                     <?php endfor; ?>;
                 </select>
             </div>
-            <div class="col-md-4">
-                <label for="criancas"><strong>Apartamento</strong></label>
-                <select class="form-select forms-label" name="criancas" id="criancas" require="">
-                    <option selected>---</option>
-                    <option value="suite">Suíte</option>
-                    <option value="luxotriplo">Luxo Triplo</option>
-                    <option value="luxoduplo">Luxo Duplo</option>
-                    <option value="luxocasal">Luxo Casal</option>
-                    <option value="luxocasal">Suíte Conjugada</option>
-                    <option value="apartamentomini">Apartamento Mini</option>
-                </select>
-            </div>
+
         </div>
         <br> <!--=======================================-->
         <div class="row pt-2">
@@ -61,7 +105,7 @@ $data = date("Y-m-d", strtotime("+1 day"));
         <div class="row pt-2 justify-content-center">
             <div class="col-md-12 pb-3">
                 <label for="mensagem"><strong>Mensagem</strong> <i class="text-muted">*opcional</i></label>
-                <textarea class="form-control forms-label" id="mensagem" rows="4"></textarea>
+                <textarea class="form-control forms-label" name="mensagem" id="mensagem" rows="4"></textarea>
             </div>
         </div>
     </div>

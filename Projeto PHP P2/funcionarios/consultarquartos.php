@@ -56,7 +56,7 @@
                     $nome = $retorno['nome'];
                 }
                 catch(Exception $e){
-                    echo "Erro ao consultar hospedes: ".$e->getMessage();
+                    echo "Erro ao consultar quartos: ".$e->getMessage();
                 }
                 ?>
                 <td><strong><?= $d['id'] ?></strong></td>
