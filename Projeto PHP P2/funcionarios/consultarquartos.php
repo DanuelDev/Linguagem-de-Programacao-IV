@@ -53,7 +53,11 @@
                         $stmt->execute();
 
                     $retorno = $stmt->fetch(PDO::FETCH_ASSOC);
-                    $nome = $retorno['nome'];
+                    if($retorno){
+                        $nome = $retorno['nome'];
+                    }else{
+                        $nome = '';
+                    }
                 }
                 catch(Exception $e){
                     echo "Erro ao consultar quartos: ".$e->getMessage();
@@ -65,7 +69,7 @@
                 <td><?= $d['tipo'] ?></td>
                 <td><?= $d['status'] ?></td>
                 <td class="d-flex gap-2">
-                    <a href="editar_categoria.php?id=<?= $d['id'] ?>" class="btn btn-sm btn-warning">Editar</a>
+                    <a href="editarquartos.php?id=<?= $d['id'] ?>" class="btn btn-sm btn-warning">Editar</a>
                     <a href="consultarquartos_detalhes.php?id=<?= $d['id'] ?>" class="btn btn-sm btn-info">Consultar</a>
                 </td>
             </tr>

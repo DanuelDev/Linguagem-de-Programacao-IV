@@ -42,7 +42,7 @@
         <ul class="dropdown-menu" style="text-align:center;" aria-labelledby="dropdown1">
           <li><a class="dropdown-item dropdown-content" href="registrar.php"><i class="bi bi-pencil-fill"></i></i> Registrar Cliente</a></li>
           <li><a class="dropdown-item dropdown-content" href="prereserva.php"><i class="bi bi-calendar-check-fill"></i> Registrar reserva</a></li>
-          <li><a class="dropdown-item" href="#"><i class="bi bi-house-gear-fill"></i> Administrar Quartos</a></li>
+          <li><a class="dropdown-item" href="admquartos.php"><i class="bi bi-house-gear-fill"></i> Administrar Quartos</a></li>
           <li><a class="dropdown-item" href="#"><i class="bi bi-speaker-fill"></i> Administrar Eventos</a></li>
         </ul>
       </li>

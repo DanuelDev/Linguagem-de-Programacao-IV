@@ -10,6 +10,15 @@
             echo "Erro ao consultar hospede: ".$e->getMessage();
         }
     }
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $id = $_POST['id'];
+        try{
+            $stmt = $pdo->prepare("DELETE FROM hospedes WHERE id = ?");
+            $stmt->execute([$id]);
+        }catch(Exception $e){
+            echo "erro: ".$e->getMessage();
+        }
+    }
 ?>
     <div class="container mb-5" style="margin-top: 100px;">
         <h1 class="no-print">Consultar hospede</h1>

@@ -3,13 +3,20 @@
     require("../db/conexao.php");
     if($_SERVER['REQUEST_METHOD'] == "GET"){
         try{
-            $stmt = $pdo->prepare("SELECT * from quartos WHERE hospede_id = ?");
+            $stmt = $pdo->prepare("SELECT * from quartos WHERE id = ?");
             $stmt->execute([$_GET['id']]);
             $quarto = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            $stmt = $pdo->prepare("SELECT * from hospedes WHERE id = ?");
-            $stmt->execute([$_GET['id']]);
-            $hospede = $stmt->fetch(PDO::FETCH_ASSOC);
+            $sql = "SELECT nome FROM hospedes WHERE id = :hospede_id";
+                $stmt = $pdo->prepare($sql);
+                $stmt->bindParam(':hospede_id', $quarto['hospede_id']);
+                $stmt->execute();
+                $hospede = $stmt->fetch(PDO::FETCH_ASSOC);
+            if($hospede){
+                $nome = $hospede['nome'];
+            }else{
+                $nome = '';
+            }
         } catch (Exception $e){
             echo "Erro ao consultar reserva: ".$e->getMessage();
         }
@@ -22,7 +29,7 @@
                 <input type="hidden" name="id" value="<?= $quarto['id'] ?>">
                 <div class="col-6">
                     <label for="nome" class="form-label">Ocupante:</label>
-                    <input disabled value="<?= $hospede['nome']?>" type="text" id="nome" name="nome" class="form-control" required="">
+                    <input disabled value="<?= $nome?>" type="text" id="nome" name="nome" class="form-control" required="">
                 </div>
                 <div class="col-2">
                     <label for="numero" class="form-label">Nº:</label>

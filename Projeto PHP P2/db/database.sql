@@ -65,3 +65,20 @@ CREATE TABLE estadias (
     FOREIGN KEY (reserva_id) REFERENCES reservas(id) ON DELETE CASCADE,
     FOREIGN KEY (quarto_id) REFERENCES quartos(id) ON DELETE RESTRICT
 );
+
+-- -----------------------------------------------------
+-- Valores iniciais de quartos
+-- -----------------------------------------------------
+
+INSERT INTO `ontelaria`.`quartos` (`numero`, `tipo`, `capacidade`, `preco_diaria`) VALUES ('1', 'suite', '3', '100.00');
+INSERT INTO `ontelaria`.`quartos` (`numero`, `tipo`, `capacidade`, `preco_diaria`) VALUES ('2', 'suite', '3', '100.00');
+INSERT INTO `ontelaria`.`quartos` (`numero`, `tipo`, `capacidade`, `preco_diaria`) VALUES ('3', 'luxotriplo', '4', '300.00');
+INSERT INTO `ontelaria`.`quartos` (`numero`, `tipo`, `capacidade`, `preco_diaria`) VALUES ('4', 'luxotriplo', '4', '300.00');
+INSERT INTO `ontelaria`.`quartos` (`numero`, `tipo`, `capacidade`, `preco_diaria`) VALUES ('5', 'luxoduplo', '4', '200.00');
+INSERT INTO `ontelaria`.`quartos` (`numero`, `tipo`, `capacidade`, `preco_diaria`) VALUES ('6', 'luxoduplo', '4', '200.00');
+INSERT INTO `ontelaria`.`quartos` (`numero`, `tipo`, `capacidade`, `preco_diaria`) VALUES ('7', 'luxocasal', '2', '50.00');
+INSERT INTO `ontelaria`.`quartos` (`numero`, `tipo`, `capacidade`, `preco_diaria`) VALUES ('8', 'luxocasal', '2', '50.00');
+INSERT INTO `ontelaria`.`quartos` (`numero`, `tipo`, `capacidade`, `preco_diaria`) VALUES ('9', 'suiteconjugada', '5', '600.00');
+INSERT INTO `ontelaria`.`quartos` (`numero`, `tipo`, `capacidade`, `preco_diaria`) VALUES ('10', 'suiteconjugada', '5', '600.00');
+INSERT INTO `ontelaria`.`quartos` (`numero`, `tipo`, `capacidade`, `preco_diaria`) VALUES ('11', 'apartamentomini', '6', '1000.00');
+INSERT INTO `ontelaria`.`quartos` (`numero`, `tipo`, `capacidade`, `preco_diaria`) VALUES ('12', 'apartamentomini', '6', '1000.00');

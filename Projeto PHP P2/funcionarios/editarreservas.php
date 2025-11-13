@@ -13,14 +13,13 @@
     if($_SERVER['REQUEST_METHOD'] == "POST"){
         $datainicio = $_POST['checkin'];
         $datafim = $_POST['checkout'];
-        $status = $_POST['status'];
-        $valortotal = $_POST['valor_total'];
+        $valortotal = $_POST['valortotal'];
         $observacoes = $_POST['observacoes'];
         $id = $_POST['id'];
         $hospedeid = $_POST['hospede_id'];
         try{
-            $stmt = $pdo->prepare("UPDATE reservas set data_inicio = ?, data_fim = ?, status = ?, valor_total = ?, observacoes = ? WHERE id = ?");
-            if($stmt->execute([$datainicio, $datafim, $telefone, $status, $valortotal, $observacoes, $id])){
+            $stmt = $pdo->prepare("UPDATE reservas set data_inicio = ?, data_fim = ?, valor_total = ?, observacoes = ? WHERE id = ?");
+            if($stmt->execute([$datainicio, $datafim, $valortotal, $observacoes, $id])){
                 header("location: consultarreservas_detalhes.php?id=$hospedeid");
             } else {
                 header('location: consultarreservas.php');
@@ -55,7 +54,7 @@
                 </div>
                 <div class="col-3">
                     <label for="observacoes" class="form-label">Mensagem:</label>
-                    <textarea value="<?= $reserva['observacoes']?>" id="observacoes" name="observacoes" class="form-control forms-label" rows="5"></textarea>
+                    <textarea id="observacoes" name="observacoes" class="form-control forms-label" rows="5"><?=$reserva['observacoes']?></textarea>
                 </div>
             </div>
             <button type="submit" class="btn btn-primary">Enviar</button>
