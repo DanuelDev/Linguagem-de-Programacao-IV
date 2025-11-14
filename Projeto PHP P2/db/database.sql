@@ -37,7 +37,6 @@ CREATE TABLE quartos (
     capacidade INT NOT NULL,
     preco_diaria DECIMAL(10, 2) NOT NULL,
     descricao TEXT,
-    FOREIGN KEY (hospede_id) REFERENCES hospedes(id) ON DELETE CASCADE,
     status ENUM('disponivel', 'indisponivel', 'manutencao') DEFAULT 'disponivel'
 );
 
@@ -82,3 +81,5 @@ INSERT INTO `ontelaria`.`quartos` (`numero`, `tipo`, `capacidade`, `preco_diaria
 INSERT INTO `ontelaria`.`quartos` (`numero`, `tipo`, `capacidade`, `preco_diaria`) VALUES ('10', 'suiteconjugada', '5', '600.00');
 INSERT INTO `ontelaria`.`quartos` (`numero`, `tipo`, `capacidade`, `preco_diaria`) VALUES ('11', 'apartamentomini', '6', '1000.00');
 INSERT INTO `ontelaria`.`quartos` (`numero`, `tipo`, `capacidade`, `preco_diaria`) VALUES ('12', 'apartamentomini', '6', '1000.00');
+
+INSERT INTO `ontelaria`.`funcionarios` (`nome`, `email`, `setor`, `cpf`, `senha`) VALUES ('Funcionário dos Santos', 'funcionario@email.com', 'Registro', '654894256', '$2y$10$/mN4DWqP8eEk0EHc3eQLJO94nZzVGkG0wSJKQF2V6P5keLcZ7Gvte');

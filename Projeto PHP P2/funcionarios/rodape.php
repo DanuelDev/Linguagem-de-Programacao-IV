@@ -1,5 +1,5 @@
 <br>
-<footer id="sticky-footer" class="flex py-4 rodape">
+<footer id="fixed-bottom" class="flex py-4 rodape">
     <div class="container text-center">
       <small>© 2025 Daniel Horvath</small>
     </div>
