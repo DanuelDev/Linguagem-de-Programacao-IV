@@ -37,20 +37,14 @@
         $totaldias = calcularDias($checkindata, $checkoutdata);
         
         $valor = $_POST['valor'];
-        $valordiario = $valor / $totaldias;
         $mensagem = $_POST['mensagem'];
         
-        $criancas = $_POST['criancas'];
-        $adultos = $_POST['adultos'];
-        $capacidade = intval($criancas) + intval($adultos);
-        $numeroquarto = $_POST['numero_quarto'];
         $apartamento = $_POST['apartamento'];
         try{
             $stmt = $pdo->prepare('INSERT INTO reservas (hospede_id, data_inicio, data_fim, valor_total, observacoes) VALUES (?, ?, ?, ?, ?)');
             $stmt->execute([$hospede_id, $checkindata, $checkoutdata, $valor, $mensagem]);
+            header("location: index.php");
 
-            $stmt = $pdo->prepare('INSERT INTO quartos (hospede_id, numero, tipo, capacidade, preco_diaria, status) VALUES (?, ?, ?, ?, ?, ?)');
-            $stmt->execute([$hospede_id, $numeroquarto, $apartamento, $capacidade, $valordiario, 'indisponivel']);
         }catch(Exception $e){
             echo 'Erro ao inserir: '.$e->getMessage();
         }
@@ -106,10 +100,6 @@
                     <option value=<?=$i?>><?=$i?></option>
                     <?php endfor; ?>;
                 </select>
-            </div>
-            <div class="col-md-2">
-                <label for="numero_quarto"><strong>Número</strong></label>
-                <input type="text" class="form-control forms-label" name="numero_quarto" id="numero_quarto" require="">
             </div>
         </div>
         <div class="row pt-2 justify-content-center">

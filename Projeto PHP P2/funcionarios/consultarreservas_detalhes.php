@@ -14,6 +14,19 @@
             echo "Erro ao consultar reserva: ".$e->getMessage();
         }
     }
+    if($_SERVER['REQUEST_METHOD'] == "POST"){
+        $id = $_POST['id'];
+        try{
+            $stmt = $pdo->prepare("DELETE FROM reservas WHERE hospede_id = ?");
+            if($stmt->execute([$id])){
+                header("location: consultarreservas.php?excluir=true");
+            } else {
+                header('location: consultarreservas.php?excluir=false');
+            }
+        }catch(\Exception $e){
+            echo "Erro: ".$e->getMessage();
+        }
+    }
 ?>
     <div class="container mb-5" style="margin-top: 100px;">
         <h1 class="no-print">Consultar reserva</h1>

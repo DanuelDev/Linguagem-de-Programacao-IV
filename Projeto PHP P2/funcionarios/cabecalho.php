@@ -55,6 +55,7 @@
           <li><a class="dropdown-item dropdown-content" href="consultarcliente.php"><i class="bi bi-calendar-check-fill"></i> Consultar Clientes</a></li>
           <li><a class="dropdown-item dropdown-content" href="consultarreservas.php"><i class="bi bi-calendar-check-fill"></i> Consultar Reservas</a></li>
           <li><a class="dropdown-item dropdown-content" href="consultarquartos.php"><i class="bi bi-calendar-check-fill"></i> Consultar Quartos</a></li>
+          <li><a class="dropdown-item dropdown-content" href="consultarestadias.php"><i class="bi bi-calendar-check-fill"></i> Consultar Estadias</a></li>
         </ul>
       </li>
 
