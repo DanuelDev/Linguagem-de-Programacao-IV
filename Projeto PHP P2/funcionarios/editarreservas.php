@@ -27,7 +27,7 @@
         $hospedeid = $_POST['hospede_id'];
         $apartamento = $_POST['apartamento'];
         try{
-            $stmt = $pdo->prepare("UPDATE quartos set hospede_id = ? WHERE tipo = ? LIMIT 1");
+            $stmt = $pdo->prepare("UPDATE quartos set hospede_id = ? WHERE tipo = ? AND status = 'disponivel' LIMIT 1");
             $stmt->execute([$hospedeid, $apartamento]);
         } catch (Exception $e){
             echo "Erro ao atualizar quarto: ".$e->getMessage();

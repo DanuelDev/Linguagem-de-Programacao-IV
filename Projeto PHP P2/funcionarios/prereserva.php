@@ -27,7 +27,12 @@
              $stmt->execute();
     
             $retorno = $stmt->fetch(PDO::FETCH_ASSOC);
-            $hospede_id = $retorno['id'];
+            if($retorno){
+                $hospede_id = $retorno['id'];
+            }else{
+                echo"<p class='message-error'><strong>Hospede não encontrado!</strong></p>";
+            }
+            
         }
         catch(Exception $e){
             echo "Erro ao consultar hospedes: ".$e->getMessage();
@@ -39,11 +44,12 @@
         $valor = $_POST['valor'];
         $mensagem = $_POST['mensagem'];
         
-        $apartamento = $_POST['apartamento'];
         try{
-            $stmt = $pdo->prepare('INSERT INTO reservas (hospede_id, data_inicio, data_fim, valor_total, observacoes) VALUES (?, ?, ?, ?, ?)');
-            $stmt->execute([$hospede_id, $checkindata, $checkoutdata, $valor, $mensagem]);
-            header("location: index.php");
+            if($retorno){
+                $stmt = $pdo->prepare('INSERT INTO reservas (hospede_id, data_inicio, data_fim, valor_total, observacoes) VALUES (?, ?, ?, ?, ?)');
+                $stmt->execute([$hospede_id, $checkindata, $checkoutdata, $valor, $mensagem]);
+                header("location: consultarreservas.php?cadastro=true");
+            }
 
         }catch(Exception $e){
             echo 'Erro ao inserir: '.$e->getMessage();
@@ -63,13 +69,13 @@
         <div class="row justify-content-center">
             <div class="col-md-5">
                 <label for="nome"><strong>Nome</strong></label>
-                <input type="text" class="form-control forms-label" name="nome" id="nome" require="">
+                <input type="text" class="form-control forms-label" name="nome" id="nome" required>
             </div>
             <div class="col-md-4">
                 <label for="valor"><strong>Valor</strong></label>
                 <div class="input-group">
                     <span class="input-group-text">R$</span>
-                    <input type="text" class="form-control forms-label" name="valor" id="valor" require="">
+                    <input type="text" class="form-control forms-label" name="valor" id="valor" required>
                 </div>
             </div>
         </div>
@@ -77,43 +83,11 @@
         <div class="row pt-2 justify-content-center">
             <div class="col-md-2">
                 <label for="checkindata"><strong>Check-In</strong></label>
-                <input type="date" class="form-control forms-label" name="checkindata" id="checkindata" placeholder="dia/mês" require="">
+                <input type="date" class="form-control forms-label" name="checkindata" id="checkindata" placeholder="dia/mês" required>
             </div>
             <div class="col-md-2">
                 <label for="checkoutdata"><strong>Check-Out</strong></label>
-                <input type="date" class="form-control forms-label" name="checkoutdata" id="checkoutdata" placeholder="dia/mês" require="">
-            </div>
-            <div class="col-md-2">
-                <label for="adultos"><strong>Adultos</strong></label>
-                <select class="form-select forms-label" name="adultos" id="adultos" require="">
-                    <option selected>---</option>
-                    <?php for($i=1; $i <= 8; $i++):?>
-                    <option value=<?=$i?>><?=$i?></option>
-                    <?php endfor; ?>;
-                </select>
-            </div>
-            <div class="col-md-2">
-                <label for="criancas"><strong>Crianças</strong></label>
-                <select class="form-select forms-label" name="criancas" id="criancas" require="">
-                    <option selected>---</option>
-                    <?php for($i=1; $i <= 8; $i++):?>
-                    <option value=<?=$i?>><?=$i?></option>
-                    <?php endfor; ?>;
-                </select>
-            </div>
-        </div>
-        <div class="row pt-2 justify-content-center">
-            <div class="col-md-4">
-                <label for="apartamento"><strong>Apartamento</strong></label>
-                <select class="form-select forms-label" name="apartamento" id="apartamento" require="">
-                    <option selected>---</option>
-                    <option value="suite">Suíte</option>
-                    <option value="luxotriplo">Luxo Triplo</option>
-                    <option value="luxoduplo">Luxo Duplo</option>
-                    <option value="luxocasal">Luxo Casal</option>
-                    <option value="luxocasal">Suíte Conjugada</option>
-                    <option value="apartamentomini">Apartamento Mini</option>
-                </select>
+                <input type="date" class="form-control forms-label" name="checkoutdata" id="checkoutdata" placeholder="dia/mês" required>
             </div>
         </div>
         <!--=======================================-->

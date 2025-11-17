@@ -19,10 +19,13 @@
         try{
             $stmt = $pdo->prepare("DELETE FROM reservas WHERE hospede_id = ?");
             if($stmt->execute([$id])){
+                $stmt = $pdo->prepare("UPDATE quartos set status = ?, hospede_id = ? WHERE hospede_id = ?");
+                $stmt->execute(['disponivel', 0, $id]);
                 header("location: consultarreservas.php?excluir=true");
             } else {
                 header('location: consultarreservas.php?excluir=false');
             }
+
         }catch(\Exception $e){
             echo "Erro: ".$e->getMessage();
         }
