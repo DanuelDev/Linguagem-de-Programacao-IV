@@ -82,4 +82,11 @@ INSERT INTO `ontelaria`.`quartos` (`numero`, `tipo`, `capacidade`, `preco_diaria
 INSERT INTO `ontelaria`.`quartos` (`numero`, `tipo`, `capacidade`, `preco_diaria`) VALUES ('11', 'apartamentomini', '6', '1000.00');
 INSERT INTO `ontelaria`.`quartos` (`numero`, `tipo`, `capacidade`, `preco_diaria`) VALUES ('12', 'apartamentomini', '6', '1000.00');
 
+-- -----------------------------------------------------
+-- Valores iniciais de hóspedes e funcionários
+-- senhas: 123
+-- -----------------------------------------------------
+
+INSERT INTO `ontelaria`.`hospedes` (`nome`, `email`, `telefone`, `cpf`, `data_nascimento`, `endereco`, `senha`) VALUES ('Cliente Chatonildo', 'cliente@email.com', '19446584', '4554648385', '2025-11-18', 'Rua Muito Engraçada, Santa Catarina, CEP: 4546486', '$2a$10$G84fota5R8s5FIGVIjaDMuTg8f9uMZje9KZXbl1biqzLoIAkIzgKy');
+
 INSERT INTO `ontelaria`.`funcionarios` (`nome`, `email`, `setor`, `cpf`, `senha`) VALUES ('Funcionário dos Santos', 'funcionario@email.com', 'Registro', '654894256', '$2y$10$/mN4DWqP8eEk0EHc3eQLJO94nZzVGkG0wSJKQF2V6P5keLcZ7Gvte');

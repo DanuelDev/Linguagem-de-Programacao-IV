@@ -5,18 +5,21 @@
     <div class="container" style="margin-bottom: 100px">
         <div class="container" style="width: 500px;">
     <?php
+    // Mensagem de cadastro realizado com sucesso
     if(isset($_GET["cadastro"])){
         $cadastro = $_GET["cadastro"];
         if($cadastro){
             echo"<p class='message-success'><strong>Cadastro realizado com sucesso!</strong></p>";
         }
     }
+    // Processar o login
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         require("db\conexao.php");
         $email = $_POST['cliente-email'];
         $senha = $_POST['cliente-senha'];
 
         try{
+            // Verificar se o usuário é um hóspede
             $stmt = $pdo->prepare("SELECT * FROM hospedes WHERE email = ?");
             $stmt->execute([$email]);
             $hospede = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -29,6 +32,7 @@
                 $_SESSION['telefone'] = $hospede['telefone'];
                 header('location: hospedes\index.php');
             } else{
+                // Verificar se o usuário é um funcionário
                 $stmt = $pdo->prepare("SELECT * FROM funcionarios WHERE email = ?");
                 $stmt->execute([$email]);
                 $funcionario = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -40,6 +44,7 @@
                     $_SESSION['email'] = $funcionario['email'];
                     header('location: funcionarios\index.php');
                 }else{
+                    // Verificar se o usuário é um admin
                     $stmt = $pdo->prepare("SELECT * FROM admin WHERE email = ?");
                     $stmt->execute([$email]);
                     $admin = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -49,6 +54,7 @@
                         $_SESSION['email'] = $admin['email'];
                         header('location: admin\index.php');
                     }else{
+                        // Credenciais inválidas
                         echo "<p class='text-danger text-center'><strong>Credenciais inválidas!</strong></p>";
                     }
                 }

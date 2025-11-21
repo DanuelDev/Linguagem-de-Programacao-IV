@@ -41,8 +41,8 @@
         </a>
         <ul class="dropdown-menu" style="text-align:center;" aria-labelledby="dropdown1">
           <li><a class="dropdown-item dropdown-content" href="prereserva.php"><i class="bi bi-calendar-check-fill"></i> Pré-Reserva</a></li>
-          <li><a class="dropdown-item" href="#"><i class="bi bi-fork-knife"></i> Restaurante</a></li>
-          <li><a class="dropdown-item" href="#"><i class="bi bi-speaker-fill"></i> Eventos</a></li>
+          <li><a class="dropdown-item" href="construcao.php"><i class="bi bi-fork-knife"></i> Restaurante</a></li>
+          <li><a class="dropdown-item" href="construcao.php"><i class="bi bi-speaker-fill"></i> Eventos</a></li>
         </ul>
       </li>
 
@@ -51,8 +51,8 @@
           Contato
         </a>
         <ul class="dropdown-menu" style="text-align:center;" aria-labelledby="dropdown2">
-          <li><a class="dropdown-item" href="#"><i class="bi bi-telephone-fill"></i> Fale conosco</a></li>
-          <li><a class="dropdown-item" href="#"><i class="bi bi-clipboard2-check-fill"></i> Pesquisa de satisfação</a></li>
+          <li><a class="dropdown-item" href="construcao.php"><i class="bi bi-telephone-fill"></i> Fale conosco</a></li>
+          <li><a class="dropdown-item" href="construcao.php"><i class="bi bi-clipboard2-check-fill"></i> Pesquisa de satisfação</a></li>
         </ul>
       </li>
       </ul>
