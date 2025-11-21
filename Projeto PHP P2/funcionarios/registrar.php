@@ -1,4 +1,5 @@
 <?php
+    // Registrar novo hóspede/cliente
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         require("..\db\conexao.php");
         $email = $_POST["cliente-email"];
@@ -13,14 +14,17 @@
         $rua = $_POST["cliente-rua"];
         $cep = $_POST["cliente-cep"];
 
+        // Validar se as senhas coincidem
         if($senha !== $confirmasenha){
             echo "<p>Senhas diferentes!</p>";
         }
         else{
+            // Hash da senha para segurança
             $senhaHash = password_hash($senha, PASSWORD_BCRYPT);
-
+            // Montar o endereço completo
             $endereco = $rua . ", " . $cidade . " - " . $estado . ", CEP: " . $cep;
 
+            // Inserir o novo hóspede no banco de dados
             try{
             $stmt = $pdo->prepare("INSERT INTO hospedes (nome, email, telefone, cpf, data_nascimento, endereco, senha) VALUES (?, ?, ?, ?, ?, ?, ?)");
             if($stmt->execute([$nome, $email, $telefone, $cpf, $nascimento, $endereco, $senhaHash])){

@@ -1,4 +1,5 @@
 <?php include("cabecalho.php"); ?>
+<!-- Página de construção. Condenada a nunca se aposentar (como eu). -->
     <div class="container" style="margin-top: 100px; margin-bottom: 100px;">
         <div class="row justify-content-center">
             <div class="col-md-6 text-center">

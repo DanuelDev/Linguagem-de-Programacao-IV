@@ -1,7 +1,9 @@
 <?php
     require("cabecalho.php");
     require("../db/conexao.php");
+    // Buscar todas as reservas para exibição
     try{
+        // Consulta SQL para buscar reservas com informações relacionadas
         $sql = "SELECT 
     r.*,
     e.id,
@@ -24,7 +26,7 @@
     }
 
     
-
+    // Mensagens de sucesso ou erro baseadas em parâmetros na URL
     if (isset($_GET['cadastro']) && $_GET['cadastro']){
         echo"<p class='message-success'><strong>Reserva realizada!</strong></p>";
     } else if (isset($_GET['cadastro']) && !$_GET['cadastro']){

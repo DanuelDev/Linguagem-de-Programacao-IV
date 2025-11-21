@@ -1,7 +1,9 @@
 <?php
     require("cabecalho.php");
     require("..\db\conexao.php");
+    // Editar um cliente existente
     if($_SERVER['REQUEST_METHOD'] == "GET"){
+        // Buscar o cliente pelo ID fornecido na URL
         try{
             $stmt = $pdo->prepare("SELECT * from hospedes WHERE id = ?");
             $stmt->execute([$_GET['id']]);
@@ -10,6 +12,7 @@
             echo "Erro ao consultar cliente: ".$e->getMessage();
         }
     }
+    // Processar o formulário de edição
     if($_SERVER['REQUEST_METHOD'] == "POST"){
         $nome = $_POST['nome'];
         $email = $_POST['email'];
@@ -19,6 +22,7 @@
         $endereco = $_POST['endereco'];
         $id = $_POST['id'];
         try{
+            // Atualizar o cliente no banco de dados
             $stmt = $pdo->prepare("UPDATE hospedes set nome = ?, email = ?, telefone = ?, cpf = ?, data_nascimento = ?, endereco = ? WHERE id = ?");
             if($stmt->execute([$nome, $email, $telefone, $cpf, $nascimento, $endereco, $id])){
                 header("location: consultarcliente_detalhes.php?id=$id");

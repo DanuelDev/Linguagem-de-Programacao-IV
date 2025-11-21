@@ -1,8 +1,10 @@
 <?php
     require("cabecalho.php");
     require("..\db\conexao.php");
+    // Editar uma reserva existente
     if($_SERVER['REQUEST_METHOD'] == "GET"){
         try{
+            // Buscar a reserva e o quarto do hóspede pelo ID fornecido na URL
             $stmt = $pdo->prepare("SELECT * from reservas WHERE hospede_id = ?");
             $stmt->execute([$_GET['id']]);
             $reserva = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -10,6 +12,7 @@
             echo "Erro ao consultar reserva: ".$e->getMessage();
         }
         try{
+            // Buscar o quarto associado ao hóspede
             $stmt = $pdo->prepare("SELECT * from quartos WHERE hospede_id = ?");
             if($stmt->execute([$_GET['id']])){
                 $quarto = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -18,6 +21,7 @@
             echo "Erro ao consultar quartos: ".$e->getMessage();
         }
     }
+    // Processar o formulário de edição
     if($_SERVER['REQUEST_METHOD'] == "POST"){
         $datainicio = $_POST['checkin'];
         $datafim = $_POST['checkout'];
@@ -27,12 +31,14 @@
         $hospedeid = $_POST['hospede_id'];
         $apartamento = $_POST['apartamento'];
         try{
+            // Atualizar o quarto associado ao hóspede
             $stmt = $pdo->prepare("UPDATE quartos set hospede_id = ? WHERE tipo = ? AND status = 'disponivel' LIMIT 1");
             $stmt->execute([$hospedeid, $apartamento]);
         } catch (Exception $e){
             echo "Erro ao atualizar quarto: ".$e->getMessage();
         }
         try{
+            // Atualizar a reserva no banco de dados
             $stmt = $pdo->prepare("UPDATE reservas set data_inicio = ?, data_fim = ?, valor_total = ?, observacoes = ? WHERE hospede_id = ?");
             if($stmt->execute([$datainicio, $datafim, $valortotal, $observacoes, $id])){
                 header("location: consultarreservas_detalhes.php?id=$hospedeid");

@@ -2,10 +2,11 @@
 <?php 
     include "cabecalho.php";
     require("..\db\conexao.php");
-
+    // Definir fuso horário e data mínima para o check-in
     date_default_timezone_set("America/Sao_Paulo");
     $data = date("Y-m-d", strtotime("+1 day"));
 
+    // Função para calcular a diferença em dias entre duas datas (não está sendo utilizado)
     function calcularDias($checkin, $checkout) {
         $data_inicio = new DateTime($checkin);
         $data_fim = new DateTime($checkout);
@@ -14,29 +15,27 @@
         
         return $diferenca->days;
     }
-
+    // Consultar todas as reservas
     try{
         $stmt = $pdo->query("SELECT * FROM reservas");
         $reservas = $stmt->fetchAll();
-
-
     }catch(Exception $e){
         echo "Erro ao consultar reservas: ".$e->getMessage();
     }
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         // Procura no database pelo id do usuário baseado no nome
+        $hospede_id = $_SESSION['id'];
         $checkindata = $_POST['checkindata'];
         $checkoutdata = $_POST['checkoutdata'];
-        $totaldias = calcularDias($checkindata, $checkoutdata);
         
         $mensagem = $_POST['mensagem'];
-        $hospede_id = $_SESSION['id'];
         
         $criancas = $_POST['criancas'];
         $adultos = $_POST['adultos'];
         $capacidade = intval($criancas) + intval($adultos);
         try{
+            // Verificar se já existe uma reserva para o hóspede
             $sql = "SELECT * FROM reservas WHERE hospede_id = :hospede_id";
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam(':hospede_id', $_SESSION['id']);
@@ -45,14 +44,12 @@
             $retorno = $stmt->fetch(PDO::FETCH_ASSOC);
 
             if (!$retorno) {
+                // Inserir a nova reserva
                 $stmt = $pdo->prepare('INSERT INTO reservas (hospede_id, data_inicio, data_fim, observacoes) VALUES (?, ?, ?, ?)');
                 $stmt->execute([$hospede_id, $checkindata, $checkoutdata, $mensagem]);
             } else {
                 echo "<p class='text-center message-warning'><strong>Atenção, já há uma reserva nesse nome!</strong></p>";
             }
-
-            //$stmt = $pdo->prepare('INSERT INTO quartos (hospede_id, numero, tipo, capacidade, preco_diaria, status) VALUES (?, ?, ?, ?, ?, ?)');
-            //$stmt->execute([$hospede_id, $numeroquarto, $apartamento, $capacidade, $valordiario, 'indisponivel']);
         }catch(Exception $e){
             echo 'Erro ao inserir: '.$e->getMessage();
         }

@@ -1,6 +1,7 @@
 <?php
     require("cabecalho.php");
     require("../db/conexao.php");
+    // Buscar todas os quartos para exibição
     try{
         $stmt = $pdo->query("SELECT * FROM quartos");
         $dados = $stmt->fetchAll();
@@ -9,7 +10,7 @@
     }
 
     
-
+    // Mensagens de sucesso ou erro baseadas em parâmetros na URL
     if (isset($_GET['cadastro']) && $_GET['cadastro']){
         echo "<p class='text-success'>Cadastro realizado!</p>";
     } else if (isset($_GET['cadastro']) && !$_GET['cadastro']){
@@ -46,6 +47,7 @@
             ?>
             <tr>
                 <?php 
+                // Buscar o nome do hóspede associado ao quarto, se houver
                 try{
                     $sql = "SELECT nome FROM hospedes WHERE id = :hospede_id";
                     $stmt = $pdo->prepare($sql);
@@ -56,6 +58,7 @@
                     if($retorno){
                         $nome = $retorno['nome'];
                     }else{
+                        // Se não houver hóspede associado, definir nome como vazio
                         $nome = '';
                     }
                 }

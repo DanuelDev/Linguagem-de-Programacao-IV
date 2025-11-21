@@ -1,12 +1,15 @@
 <?php
     require("cabecalho.php");
     require("../db/conexao.php");
+    // Consultar os detalhes de uma reserva específica
     if($_SERVER['REQUEST_METHOD'] == "GET"){
         try{
+            // Buscar a reserva e o hóspede pelo ID fornecido na URL
             $stmt = $pdo->prepare("SELECT * from reservas WHERE hospede_id = ?");
             $stmt->execute([$_GET['id']]);  
             $reserva = $stmt->fetch(PDO::FETCH_ASSOC);
-
+            
+            // Buscar o hóspede associado à reserva
             $stmt = $pdo->prepare("SELECT * from hospedes WHERE id = ?");
             $stmt->execute([$_GET['id']]);
             $hospede = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -14,11 +17,14 @@
             echo "Erro ao consultar reserva: ".$e->getMessage();
         }
     }
+    // Processar o formulário de exclusão
     if($_SERVER['REQUEST_METHOD'] == "POST"){
         $id = $_POST['id'];
         try{
+            // Excluir a reserva do banco de dados
             $stmt = $pdo->prepare("DELETE FROM reservas WHERE hospede_id = ?");
             if($stmt->execute([$id])){
+                // Atualizar o status do quarto para 'disponivel' e remover o hóspede associado
                 $stmt = $pdo->prepare("UPDATE quartos set status = ?, hospede_id = ? WHERE hospede_id = ?");
                 $stmt->execute(['disponivel', 0, $id]);
                 header("location: consultarreservas.php?excluir=true");

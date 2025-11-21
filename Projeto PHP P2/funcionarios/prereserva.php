@@ -2,7 +2,7 @@
 <?php
     require("cabecalho.php");
     require("..\db\conexao.php");
-
+    // Função para calcular a diferença em dias entre duas datas (não está sendo usada no momento)
     function calcularDias($checkin, $checkout) {
         $data_inicio = new DateTime($checkin);
         $data_fim = new DateTime($checkout);
@@ -11,7 +11,7 @@
         
         return $diferenca->days;
     }
-
+    // Buscar todas as reservas para exibição
     try{
         $stmt = $pdo->query("SELECT * FROM reservas");
         $reservas = $stmt->fetchAll();
@@ -27,6 +27,7 @@
              $stmt->execute();
     
             $retorno = $stmt->fetch(PDO::FETCH_ASSOC);
+            // Se encontrado, atribui o id à variável hospede_id
             if($retorno){
                 $hospede_id = $retorno['id'];
             }else{
@@ -39,12 +40,12 @@
         }
         $checkindata = $_POST['checkindata'];
         $checkoutdata = $_POST['checkoutdata'];
-        $totaldias = calcularDias($checkindata, $checkoutdata);
         
         $valor = $_POST['valor'];
         $mensagem = $_POST['mensagem'];
         
         try{
+            // Inserir a reserva no banco de dados
             if($retorno){
                 $stmt = $pdo->prepare('INSERT INTO reservas (hospede_id, data_inicio, data_fim, valor_total, observacoes) VALUES (?, ?, ?, ?, ?)');
                 $stmt->execute([$hospede_id, $checkindata, $checkoutdata, $valor, $mensagem]);

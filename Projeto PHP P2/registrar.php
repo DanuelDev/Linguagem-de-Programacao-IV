@@ -1,4 +1,5 @@
 <?php
+// Processar o formulário de registro de cliente
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         require("db\conexao.php");
         $email = $_POST["cliente-email"];
@@ -12,16 +13,18 @@
         $cidade = $_POST["cliente-cidade"];
         $rua = $_POST["cliente-rua"];
         $cep = $_POST["cliente-cep"];
-
+        // Validar se as senhas coincidem
         if($senha !== $confirmasenha){
             echo "<p>Senhas diferentes!</p>";
         }
         else{
+            // Hash da senha para segurança
             $senhaHash = password_hash($senha, PASSWORD_BCRYPT);
-
+            // Montar o endereço completo
             $endereco = $rua . ", " . $cidade . " - " . $estado . ", CEP: " . $cep;
 
             try{
+                // Inserir o novo hóspede no banco de dados
             $stmt = $pdo->prepare("INSERT INTO hospedes (nome, email, telefone, cpf, data_nascimento, endereco, senha) VALUES (?, ?, ?, ?, ?, ?, ?)");
             if($stmt->execute([$nome, $email, $telefone, $cpf, $nascimento, $endereco, $senhaHash])){
                 header("location: login.php?cadastro=true");
@@ -38,7 +41,7 @@
 <form action="" method="post">
 
     <div class="container-flex" style="margin-bottom: 100px">
-
+    <!-- Formulário de registro de cliente -->
         <div class="container container-title" style="width: 700px;">
             <h3 class="text-center forms-title">Registrar</h3>
         </div>

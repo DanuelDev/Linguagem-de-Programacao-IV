@@ -1,6 +1,6 @@
 
 <?php include "cabecalho.php";
-
+    // Redirecionar para a página de login para registrar uma pré-reserva
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         header("location: login.php");
     }

@@ -1,6 +1,7 @@
 <?php
     require("cabecalho.php");
     require("../db/conexao.php");
+    // Buscar o cliente pelo ID fornecido na URL
     if($_SERVER['REQUEST_METHOD'] == "GET"){
         try{
             $stmt = $pdo->prepare("SELECT * from hospedes WHERE id = ?");
@@ -10,6 +11,7 @@
             echo "Erro ao consultar hospede: ".$e->getMessage();
         }
     }
+    // Processar o formulário de exclusão
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $id = $_POST['id'];
         try{
@@ -54,6 +56,7 @@
                     <input disabled value="<?= $hospede['endereco']?>" type="text" id="endereco" name="endereco" class="form-control" required="">
                 </div>
             </div>
+            <!-- Botões: Excluir, Voltar, Imprimir -->
             <div class="d-flex gap-2 no-print" >
                 <button type="submit" class="btn btn-danger no-print">Excluir</button>
                 <button onclick="history.back();" type="button" class="btn btn-secondary no-print">Voltar</button>

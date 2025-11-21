@@ -1,12 +1,14 @@
 <?php
     require("cabecalho.php");
     require("../db/conexao.php");
+    // Buscar todas os clientes para exibição
     try{
         $stmt = $pdo->query("SELECT * FROM hospedes");
         $dados = $stmt->fetchAll();
     } catch(\Exception $e){
         echo "Erro: ".$e->getMessage();
     }
+    // Mensagens de sucesso ou erro baseadas em parâmetros na URL
     if (isset($_GET['cadastro']) && $_GET['cadastro']){
         echo "<p class='text-success'>Cadastro realizado!</p>";
     } else if (isset($_GET['cadastro']) && !$_GET['cadastro']){
@@ -39,6 +41,7 @@
         </thead>
         <tbody>
             <?php
+            // Loop através dos dados dos clientes e exibição na tabela
                 foreach($dados as $d):
             ?>
             <tr>

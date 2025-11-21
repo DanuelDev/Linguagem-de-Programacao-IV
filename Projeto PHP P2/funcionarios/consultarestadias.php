@@ -1,6 +1,7 @@
 <?php
     require("cabecalho.php");
     require("../db/conexao.php");
+    // Buscar todas as estadias para exibição
     try{
         $sql = "SELECT 
                 e.id AS estadia_id,
@@ -45,6 +46,7 @@
         </thead>
         <tbody>
             <?php
+                // Loop através dos dados das estadias e exibição na tabela
                 foreach($dados as $d):
             ?>
             <tr>

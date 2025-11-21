@@ -1,12 +1,15 @@
 <?php
     require("cabecalho.php");
     require("../db/conexao.php");
+    // Buscar o quarto pelo ID fornecido na URL
     if($_SERVER['REQUEST_METHOD'] == "GET"){
         try{
+            // Buscar o quarto pelo ID fornecido na URL
             $stmt = $pdo->prepare("SELECT * from quartos WHERE id = ?");
             $stmt->execute([$_GET['id']]);
             $quarto = $stmt->fetch(PDO::FETCH_ASSOC);
 
+            // Buscar o nome do hóspede associado ao quarto, se houver
             $sql = "SELECT nome FROM hospedes WHERE id = :hospede_id";
                 $stmt = $pdo->prepare($sql);
                 $stmt->bindParam(':hospede_id', $quarto['hospede_id']);
@@ -15,6 +18,7 @@
             if($hospede){
                 $nome = $hospede['nome'];
             }else{
+                // Se não houver hóspede associado, definir nome como vazio
                 $nome = '';
             }
         } catch (Exception $e){

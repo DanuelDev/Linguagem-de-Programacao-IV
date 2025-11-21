@@ -1,4 +1,5 @@
 <?php
+// Processar o formulário de registro de quarto
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         require("..\db\conexao.php");
         $numero = $_POST["numero"];
@@ -9,6 +10,7 @@
         $status = $_POST["status"];
 
         try{
+            // Inserir o novo quarto no banco de dados
         $stmt = $pdo->prepare("INSERT INTO quartos (numero, tipo, capacidade, preco_diaria, descricao, status) VALUES (?, ?, ?, ?, ?, ?)");
         if($stmt->execute([$numero, $tipo, $capacidade, $preco_diaria, $descricao, $status])){
             header("location: consultarquartos.php");
@@ -26,6 +28,7 @@
     <div class="container-flex" style="margin-bottom: 100px; border-color: #212529;">
 
         <div class="container container-title" style="width: 700px; background-color: #212529; border-color: #212529;">
+            <!-- formulário de registro de quarto -->
             <h3 class="text-center forms-title">Registrar Quarto</h3>
         </div>
         <!--=======================================-->
