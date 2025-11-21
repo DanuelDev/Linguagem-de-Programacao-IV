@@ -55,7 +55,7 @@
                 <td><?= $d['quarto_numero'] ?></td>
                 <td><?= $d['estadia_status'] ?></td>
                 <td class="d-flex gap-2">
-                    <a href="consultarquartos_detalhes.php?id=<?= $d['quarto_id'] ?>" class="btn btn-sm btn-info">Consultar</a>
+                    <a href="consultarestadias_detalhes.php?id=<?= $d['estadia_id'] ?>" class="btn btn-sm btn-info">Consultar</a>
                 </td>
             </tr>
             <?php
