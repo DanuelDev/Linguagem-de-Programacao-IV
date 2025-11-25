@@ -2,7 +2,7 @@
     // Conexão com o banco de dados
     $dominio = "mysql:host=localhost;dbname=ontelaria";
     $usuario = "root";
-    $senha = ""; #123
+    $senha = ""; 
 
     try{
         // Criar a conexão PDO

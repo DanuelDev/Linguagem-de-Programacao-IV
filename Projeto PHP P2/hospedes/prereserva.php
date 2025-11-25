@@ -24,7 +24,7 @@
     }
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        // Procura no database pelo id do usuário baseado no nome
+        // Procura no database pelo id do usuário
         $hospede_id = $_SESSION['id'];
         $checkindata = $_POST['checkindata'];
         $checkoutdata = $_POST['checkoutdata'];
