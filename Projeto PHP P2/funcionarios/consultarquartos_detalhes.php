@@ -64,7 +64,7 @@
             <div class="d-flex gap-2 no-print" >
                 <button type="submit" class="btn btn-danger no-print">Excluir</button>
                 <button onclick="history.back();" type="button" class="btn btn-secondary no-print">Voltar</button>
-                <button class="btn btn-secondary no-print" onclick="window.print()">Imprimir</button>
+                <a class="btn btn-secondary no-print" onclick="window.print()">Imprimir</a>
             </div>
         </form>
     </div>
